@@ -1,0 +1,43 @@
+﻿@model ProfileViewModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/Blog_System.styles.css" asp-append-version="true" />
+
+<div class="profile-container">
+    <div class="profile-card">
+        <div class="profile-image">
+            @* <img asp-for="Image" alt="Profile Image" src="@Model.Image" /> *@
+            <img src="@(string.IsNullOrEmpty(Model.Image) ? "/images/image.png" : Model.Image)" />
+        </div>
+
+        <div class="profile-info">
+            <h2>@Model.FirstName @Model.LastName</h2>
+
+            <p>
+                <strong>Username:</strong>
+                <span asp-for="UserName">@Model.UserName</span>
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                <span asp-for="Email">@Model.Email</span>
+            </p>
+
+            <p>
+                <strong>Birthdate:</strong>
+                <span asp-for="BirthDate">@Model.BirthDate.ToString("yyyy-MM-dd")</span>
+            </p>
+        </div>
+
+        <div class="profile-actions">
+            <a asp-action="EditProfile" asp-controller="Profile" class="btn btn-primary">
+                Edit Profile
+            </a>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,68 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/Blog_System.styles.css" asp-append-version="true" />
+
+<h2 class="mb-4">Create a New Account</h2>
+
+<form asp-action="SaveRegister" asp-controller="Account" method="post" class="needs-validation" novalidate>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label asp-for="FirstName" class="form-label"></label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="col-md-6">
+            <label asp-for="LastName" class="form-label"></label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label asp-for="UserName" class="form-label"></label>
+        <input asp-for="UserName" class="form-control" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ConfirmPassword" class="form-label"></label>
+        <input asp-for="ConfirmPassword" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="BirthDate" class="form-label"></label>
+        <input asp-for="BirthDate" class="form-control" type="date" />
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Sign up" />
+</form>
+
+<div>
+    <p>You have an account? <a asp-action="Login">Sign In</a></p>
+</div>
+
+@* server مش كل شويه تروح للسيرفر . هيشوف الاول هل البيانات موجوده ومحققه الشروط وبعد كدا يوديها لل client side عشان تبقا الصفحه *@
+<script src="~/lib/jquery/dist/jquery.min.js"> </script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script> 

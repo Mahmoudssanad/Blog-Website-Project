@@ -1,12 +1,139 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Back-end\\MVC Projects\\Blog Project\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog project\\blog system\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog project\\blog system\\views\\profile\\editprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\views\\profile\\editprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog project\\blog system\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog project\\blog system\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog project\\blog system\\viewmodel\\profileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\viewmodel\\profileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog project\\blog system\\views\\profile\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\views\\profile\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog project\\blog system\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EditProfile.cshtml",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Views\\Profile\\EditProfile.cshtml",
+              "RelativeDocumentMoniker": "Blog System\\Views\\Profile\\EditProfile.cshtml",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Views\\Profile\\EditProfile.cshtml",
+              "RelativeToolTip": "Blog System\\Views\\Profile\\EditProfile.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-30T03:53:52.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Views\\Profile\\Profile.cshtml",
+              "RelativeDocumentMoniker": "Blog System\\Views\\Profile\\Profile.cshtml",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Views\\Profile\\Profile.cshtml",
+              "RelativeToolTip": "Blog System\\Views\\Profile\\Profile.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAcAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T14:04:17.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProfileController.cs",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Controllers\\ProfileController.cs",
+              "RelativeDocumentMoniker": "Blog System\\Controllers\\ProfileController.cs",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Controllers\\ProfileController.cs*",
+              "RelativeToolTip": "Blog System\\Controllers\\ProfileController.cs*",
+              "ViewState": "AgIAACkAAAAAAAAAAAAowDoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T13:50:24.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Blog System\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Blog System\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAC0AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-29T00:48:03.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProfileViewModel.cs",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\ViewModel\\ProfileViewModel.cs",
+              "RelativeDocumentMoniker": "Blog System\\ViewModel\\ProfileViewModel.cs",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\ViewModel\\ProfileViewModel.cs",
+              "RelativeToolTip": "Blog System\\ViewModel\\ProfileViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T13:53:08.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "site.css",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Blog System\\wwwroot\\css\\site.css",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Blog System\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAI8AAAAAAAAAAAAswLAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-28T19:19:41.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Blog System\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Blog System\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-30T03:47:34.279Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

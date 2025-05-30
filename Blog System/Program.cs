@@ -1,7 +1,23 @@
+using Blog_System.Models.Data;
+using Blog_System.Models.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add services to the DbContext.
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("constr"));
+});
+
+builder.Services.AddIdentity<UserApplication, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
+
+builder.Services.AddSession(x => x.IdleTimeout = TimeSpan.FromHours(1));
 
 var app = builder.Build();
 
@@ -22,7 +38,7 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{controller=Account}/{action=Login}/{id?}")
     .WithStaticAssets();
 
 
