@@ -8,6 +8,7 @@
     <div class="edit-profile-card">
         <h2>Edit Your Profile</h2>
 
+        @* enctype="multipart/form-data" => بقوله ان الفوم هتستقبل ملفات *@
         <form asp-action="EditProfile" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label asp-for="FirstName"></label>
@@ -40,9 +41,9 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="Image">Profile Image URL</label>
-                <input asp-for="Image" class="form-control" />
-                <span asp-validation-for="Image" class="text-danger"></span>
+                <label asp-for="ImageFile">Profile Image URL</label>
+                <input asp-for="ImageFile" class="form-control" accept="Image/*" value="Image"/>
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
             </div>
 
             <button type="submit" class="btn">Save Changes</button>

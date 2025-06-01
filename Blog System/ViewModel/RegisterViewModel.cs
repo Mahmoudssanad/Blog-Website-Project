@@ -37,5 +37,6 @@ namespace Blog_System.ViewModel
         [DataType(DataType.Date)]
         [AgeGreaterThanTenYears]
         public DateOnly BirthDate { get; set; }
+
     }
 }

@@ -11,43 +11,48 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm mb-4">
             <div class="container-fluid">
-                @* <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Blog_System</a> *@
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand fw-bold text-primary" asp-area="" asp-controller="Home" asp-action="Index">
+                    Blog_System
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    
-                        <div>
-                            <ul class="navbar-nav flex-grow-1">
-                                <li class="nav-item">
-                            
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                                </li>
-                            </ul>
-                        </div>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <div>
-                                <ul class="navbar-nav flex-grow-1">
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Profile" asp-action="Profile">Profile</a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div>
-                                <form asp-controller="Account" asp-action="Logout" method="post">
-                                    <input type="submit" class="Input" value="Logout">
-                                </form>
-                            </div>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Profile" asp-action="Profile">Profile</a>
+                            </li>
                         }
-                    
+                    </ul>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <form class="d-flex" asp-controller="Account" asp-action="Logout" method="post">
+                            <button class="btn btn-outline-danger" type="submit">Logout</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-controller="Account" asp-action="Login" method="get">
+                            <button class="btn btn-outline-danger" type="submit">Login</button>
+                        </form>
+                    }
                 </div>
             </div>
         </nav>
+
+
+
     </header>
 
 

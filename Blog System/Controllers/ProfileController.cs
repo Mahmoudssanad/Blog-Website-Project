@@ -3,6 +3,9 @@ using Blog_System.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using static System.Net.Mime.MediaTypeNames;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Blog_System.Controllers
 {
@@ -10,9 +13,12 @@ namespace Blog_System.Controllers
     public class ProfileController : Controller
     {
         private readonly UserManager<UserApplication> _userManager;
-        public ProfileController(UserManager<UserApplication> userManager)
+        private readonly IHostingEnvironment hosting;
+
+        public ProfileController(UserManager<UserApplication> userManager, IHostingEnvironment hosting)
         {
             _userManager = userManager;
+            this.hosting = hosting;
         }
 
         [HttpGet]
@@ -25,20 +31,24 @@ namespace Blog_System.Controllers
                 return NotFound();
             }
 
-            var model = new ProfileViewModel
+            ProfileViewModel result = new ProfileViewModel();
+            result.Email = user.Email;
+            result.BirthDate = user.BirthDate;
+            result.FirstName = user.FirstName;
+            result.LastName = user.LastName;
+            result.UserName = user.UserName;
+            result.ImageFile = user.ImageFile;
+            result.Image = user.Image;
+
+            if (user.ImageFile != null)
             {
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                UserName = user.UserName,
-                BirthDate = user.BirthDate,
-                Email = user.Email,
-                Image = user.Image,
-            };
-            return View(model);
+                result.Image = user.ImageFile.FileName;
+            }
+
+            return View(result);
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> EditProfile()
         {
             var model = await _userManager.GetUserAsync(User);
@@ -46,19 +56,21 @@ namespace Blog_System.Controllers
             if (model == null)
                 return NotFound();
 
-            var result = new ProfileViewModel
-            {
-                Email = model.Email,
-                BirthDate = model.BirthDate,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                UserName = model.UserName,
-                Image = model.Image
-            };
+            ProfileViewModel result = new ProfileViewModel();
+            result.Email = model.Email;
+            result.BirthDate = model.BirthDate;
+            result.FirstName = model.FirstName;
+            result.LastName = model.LastName;
+            result.UserName = model.UserName;
+            result.Image = model.Image;
+            //result.ImageFile = model.ImageFile;
+
+            
 
             return View(result);
         }
 
+            
         [HttpPost]
         [ValidateAntiForgeryToken] // => RdirectToAction وامتا اعمل return View امتا اعمل 
         public async Task<IActionResult> EditProfile(ProfileViewModel userProfile)
@@ -71,20 +83,37 @@ namespace Blog_System.Controllers
             if (user == null)
                 return NotFound();
 
-            user.Email = userProfile.Email;
-            user.BirthDate = userProfile.BirthDate;
-            user.FirstName = userProfile.FirstName;
-            user.LastName = userProfile.LastName;
-            user.UserName = userProfile.UserName;
-            user.Image = userProfile.Image;
-
-            var saveResultInDatabase = await _userManager.UpdateAsync(user);
-
-            if(saveResultInDatabase.Succeeded)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Profile");
-            }
+                // Read File
+                using (var ms = new MemoryStream())
+                {
+                    userProfile.ImageFile.CopyTo(ms);
+                    string base64 = Convert.ToBase64String(ms.ToArray());
 
+                    base64 = "data:" + userProfile.ImageFile.ContentType + ";base64," + base64;
+
+                    userProfile.Image = base64;
+                }
+
+
+                user.Email = userProfile.Email;
+                user.BirthDate = userProfile.BirthDate;
+                user.FirstName = userProfile.FirstName;
+                user.LastName = userProfile.LastName;
+                user.UserName = userProfile.UserName;
+                user.Image = userProfile.Image;
+
+                //if (userProfile.ImageFile.FileName != null)
+                //    user.Image = userProfile.ImageFile.FileName;
+
+                var saveResultInDatabase = await _userManager.UpdateAsync(user);
+
+                if (saveResultInDatabase.Succeeded)
+                {
+                    return RedirectToAction("Profile");
+                }
+            }
             return View(userProfile);
         }
     }

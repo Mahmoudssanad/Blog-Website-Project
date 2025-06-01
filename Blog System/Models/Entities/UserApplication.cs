@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Blog_System.Models.Entities
 {
@@ -7,7 +10,13 @@ namespace Blog_System.Models.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateOnly BirthDate { get; set; }
+
+        [HiddenInput]
         public string? Image { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Upload File")]
+        public IFormFile ImageFile { get; set; }
 
         public List<Comment> Comments { get; set; } = new List<Comment>();
         public List<Friend> Friends { get; set; } = new List<Friend>();

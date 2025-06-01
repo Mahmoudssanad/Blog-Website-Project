@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Blog System.csproj": {}
+    "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Blog System.csproj": {}
   },
   "projects": {
-    "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Blog System.csproj": {
+    "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Blog System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Blog System.csproj",
+        "projectUniqueName": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Blog System.csproj",
         "projectName": "Blog System",
-        "projectPath": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\Blog System.csproj",
+        "projectPath": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Blog System.csproj",
         "packagesPath": "C:\\Users\\NV_User\\.nuget\\packages\\",
-        "outputPath": "D:\\Back-end\\MVC Projects\\Blog Project\\Blog System\\obj\\",
+        "outputPath": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

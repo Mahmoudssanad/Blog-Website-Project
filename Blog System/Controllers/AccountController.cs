@@ -52,20 +52,27 @@ namespace Blog_System.Controllers
 
                 var found = await _userManager.FindByEmailAsync(userApplication.Email);
 
-
-                // 2- Save new register in database
-                var result = await _userManager.CreateAsync(userApplication, userRegisteration.Password);
-
-                if (result.Succeeded)
+                if(found != null)
                 {
-                    // Create Cookie
-                    await _signInManager.SignInAsync(userApplication, true);
-
-                    return RedirectToAction("Profile", "Profile");
+                    ModelState.AddModelError("", "Email Already Exist");
                 }
+
                 else
                 {
-                    throw new Exception("result not succeeded");
+                    // 2- Save new register in database
+                    var result = await _userManager.CreateAsync(userApplication, userRegisteration.Password);
+
+                    if (result.Succeeded)
+                    {
+                        // Create Cookie
+                        await _signInManager.SignInAsync(userApplication, true);
+
+                        return RedirectToAction("Profile", "Profile");
+                    }
+                    else
+                    {
+                        throw new Exception("result not succeeded");
+                    }
                 }
             }
                 return View("register", userRegisteration);
