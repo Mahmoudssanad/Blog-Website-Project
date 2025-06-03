@@ -1,4 +1,5 @@
-﻿@model ProfileViewModel
+﻿@using System.Security.Claims
+@model ProfileViewModel
 @{
     ViewData["Title"] = "Profile";
 }
@@ -10,8 +11,14 @@
 <div class="profile-container">
     <div class="profile-card">
         <div class="profile-image">
-            @* <img asp-for="Image" alt="Profile Image" src="@Model.Image" /> *@
-            <img src="@(string.IsNullOrEmpty(Model.Image) ? "/images/image.png" : Model.Image)" />
+            @if(Model.Image != null)
+            {
+                <img src="~/Images/@Model.Image" />
+            }
+            else
+            {
+                <img src="~/Images/image.png" />
+            }
         </div>
 
         <div class="profile-info">
@@ -33,11 +40,28 @@
             </p>
         </div>
 
-        <div class="profile-actions">
-            <a asp-action="EditProfile" asp-controller="Profile" class="btn btn-primary">
-                Edit Profile
-            </a>
-        </div>
+        @* عشان لما اظهر الاشخاص بالنسبه للعامل تسجيل دخول ميظهرش ليه زرار التعديل *@
+        @if (User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.NameIdentifier) == Model.UserId)
+        {
+            <div class="profile-actions">
+                <a href="@Url.Action("EditProfile", "Profile", new { id = Model.UserId })" class="btn btn-primary">
+                    Edit Profile
+                </a>
+
+                @* <a asp-action="EditProfile" asp-controller="Profile" class="btn btn-primary">Edit Profile</a> *@
+            </div>
+        }
+        else
+        {
+            <div class="profile-actions">
+                
+                <a asp-action="EditProfile" asp-controller="Profile" class="btn btn-primary">Follwo</a>
+            </div>
+            <div class="profile-actions">
+
+                <a asp-action="EditProfile" asp-controller="Profile" class="btn btn-primary">Chating</a>
+            </div>
+        }
     </div>
 </div>
 

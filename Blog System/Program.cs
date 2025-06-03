@@ -1,5 +1,6 @@
 using Blog_System.Models.Data;
 using Blog_System.Models.Entities;
+using Blog_System.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddIdentity<UserApplication, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddSession(x => x.IdleTimeout = TimeSpan.FromHours(1));
 

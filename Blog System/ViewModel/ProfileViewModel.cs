@@ -15,5 +15,7 @@ namespace Blog_System.ViewModel
         public DateOnly BirthDate { get; set; }
         public string Email { get; set; }
         public IFormFile? ImageFile { get; set; }
+
+        public string? UserId { get; set; }
     }
 }

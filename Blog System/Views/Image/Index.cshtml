@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<h1>Index</h1>
+
+<p> Do You what to add photo!!</p>
+
+<a href="/Profile/Profile">Skip</a>
+
+<form asp-action="UploadAsync" asp-controller="Image" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label for="ImageFile">Choose Image</label>
+        <input type="file" name="ImageFile" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+</form>

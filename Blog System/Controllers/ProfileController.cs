@@ -4,27 +4,40 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using System.Security.Claims;
 using static System.Net.Mime.MediaTypeNames;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Blog_System.Controllers
 {
     // هنشوف اليوزر دا موجود عندي ولا لا 
+
+    //[Authorize]
     public class ProfileController : Controller
     {
         private readonly UserManager<UserApplication> _userManager;
-        private readonly IHostingEnvironment hosting;
+        private readonly IHostingEnvironment _hosting;
 
         public ProfileController(UserManager<UserApplication> userManager, IHostingEnvironment hosting)
         {
             _userManager = userManager;
-            this.hosting = hosting;
+            _hosting = hosting;
         }
 
+
         [HttpGet]
-        public async Task<IActionResult> Profile(ProfileViewModel userProfile)
+        public async Task<IActionResult> Profile(ProfileViewModel userProfile, string id)
         {
-            var user = await _userManager.GetUserAsync(User);
+            var user = new UserApplication();
+            if (id == null)
+            {
+                 user = await _userManager.GetUserAsync(User);
+
+            }
+            else
+            {
+                user = await _userManager.FindByIdAsync(id);
+            }
 
             if(user == null)
             {
@@ -37,16 +50,12 @@ namespace Blog_System.Controllers
             result.FirstName = user.FirstName;
             result.LastName = user.LastName;
             result.UserName = user.UserName;
-            result.ImageFile = user.ImageFile;
             result.Image = user.Image;
-
-            if (user.ImageFile != null)
-            {
-                result.Image = user.ImageFile.FileName;
-            }
+            result.UserId = id;
 
             return View(result);
         }
+
 
         [HttpGet]
         public async Task<IActionResult> EditProfile()
@@ -63,9 +72,7 @@ namespace Blog_System.Controllers
             result.LastName = model.LastName;
             result.UserName = model.UserName;
             result.Image = model.Image;
-            //result.ImageFile = model.ImageFile;
 
-            
 
             return View(result);
         }
@@ -85,15 +92,20 @@ namespace Blog_System.Controllers
 
             if (ModelState.IsValid)
             {
-                // Read File
-                using (var ms = new MemoryStream())
+                string fileName = string.Empty;
+                if(userProfile.ImageFile != null)
                 {
-                    userProfile.ImageFile.CopyTo(ms);
-                    string base64 = Convert.ToBase64String(ms.ToArray());
+                    // Upload اللي اليوزر هيعمل ليها Images بجيب الملف اللي هضع فيه ال 
+                    string uploads = Path.Combine(_hosting.WebRootPath, "Images");
 
-                    base64 = "data:" + userProfile.ImageFile.ContentType + ";base64," + base64;
+                    // للحصول علي اسم الملف
+                    fileName = userProfile.ImageFile.FileName;
 
-                    userProfile.Image = base64;
+                    string fullPath = Path.Combine(uploads, fileName);
+
+                    // نقوم بإنشاء الملف fullPath بعد ما نديله ال 
+                    userProfile.ImageFile.CopyTo(new FileStream(fullPath, FileMode.Create));
+                    user.Image = fileName;
                 }
 
 
@@ -102,10 +114,7 @@ namespace Blog_System.Controllers
                 user.FirstName = userProfile.FirstName;
                 user.LastName = userProfile.LastName;
                 user.UserName = userProfile.UserName;
-                user.Image = userProfile.Image;
-
-                //if (userProfile.ImageFile.FileName != null)
-                //    user.Image = userProfile.ImageFile.FileName;
+                
 
                 var saveResultInDatabase = await _userManager.UpdateAsync(user);
 
