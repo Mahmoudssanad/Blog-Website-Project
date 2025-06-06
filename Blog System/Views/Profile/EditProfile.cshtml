@@ -8,7 +8,9 @@
     <div class="edit-profile-card">
         <h2>Edit Your Profile</h2>
 
-        @* enctype="multipart/form-data" => بقوله ان الفوم هتستقبل ملفات *@
+        @* View يظهرها في ال ModelState.AddModelError("", $"{error.Description}"); دا عشان لو فيه اخطاء مسكها عن طريق *@
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
         <form asp-action="EditProfile" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label asp-for="FirstName"></label>

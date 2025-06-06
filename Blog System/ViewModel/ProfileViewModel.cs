@@ -17,5 +17,7 @@ namespace Blog_System.ViewModel
         public IFormFile? ImageFile { get; set; }
 
         public string? UserId { get; set; }
+
+        public bool IsOwner { get; set; } // To show/hide "Edit" button
     }
 }

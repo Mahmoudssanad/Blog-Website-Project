@@ -11,8 +11,10 @@ namespace Blog_System.Controllers
         {
             _userRepository = userRepository;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            //var authUser = await User.Identities.;
+
             var allUsers = _userRepository.GetAll();
             return View(allUsers);
         }

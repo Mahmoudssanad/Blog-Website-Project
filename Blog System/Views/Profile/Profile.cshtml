@@ -41,26 +41,26 @@
         </div>
 
         @* عشان لما اظهر الاشخاص بالنسبه للعامل تسجيل دخول ميظهرش ليه زرار التعديل *@
-        @if (User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.NameIdentifier) == Model.UserId)
+        @if (User.Identity.IsAuthenticated && Model.IsOwner)
         {
             <div class="profile-actions">
                 <a href="@Url.Action("EditProfile", "Profile", new { id = Model.UserId })" class="btn btn-primary">
                     Edit Profile
                 </a>
 
-                @* <a asp-action="EditProfile" asp-controller="Profile" class="btn btn-primary">Edit Profile</a> *@
+                <a href="@Url.Action("ChangePassword", "Account", new { id = Model.UserId })" class="btn btn-primary">
+                    Change Password
+                </a>
             </div>
         }
         else
         {
-            <div class="profile-actions">
-                
-                <a asp-action="EditProfile" asp-controller="Profile" class="btn btn-primary">Follwo</a>
-            </div>
-            <div class="profile-actions">
+             <div class="profile-actions">
+             
+                 <a asp-action="EditProfile" asp-controller="Profile" class="btn btn-primary">Follwo</a>
+                 <a asp-action="EditProfile" asp-controller="Profile" class="btn btn-primary">Chating</a>
 
-                <a asp-action="EditProfile" asp-controller="Profile" class="btn btn-primary">Chating</a>
-            </div>
+             </div>
         }
     </div>
 </div>

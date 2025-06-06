@@ -1,9 +1,13 @@
 ﻿
 
 using Blog_System.Models.Entities;
+using Blog_System.Repositories;
 using Blog_System.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using System.Threading.Tasks;
 
 namespace Blog_System.Controllers
 {
@@ -20,12 +24,15 @@ namespace Blog_System.Controllers
     public class AccountController : Controller
     {
         private readonly UserManager<UserApplication> _userManager;
+        private readonly IAccountRepository _accountRepo;
         private readonly SignInManager<UserApplication> _signInManager; // when you need save data in cookie
 
-        public AccountController(UserManager<UserApplication> userManager, SignInManager<UserApplication> signInManager)
+        public AccountController(UserManager<UserApplication> userManager,
+            SignInManager<UserApplication> signInManager, IAccountRepository accountRepo)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _accountRepo = accountRepo;
         }
 
         [HttpGet]
@@ -67,7 +74,7 @@ namespace Blog_System.Controllers
                         // Create Cookie
                         await _signInManager.SignInAsync(userApplication, true);
 
-                        return RedirectToAction("Profile", "Profile");
+                        return RedirectToAction("Index", "Home");
                     }
                     else
                     {
@@ -102,7 +109,7 @@ namespace Blog_System.Controllers
                         {
                             // but User Data in cookie
                             await _signInManager.SignInAsync(result, true);
-                            return RedirectToAction("Profile", "Profile");
+                            return RedirectToAction("Index", "Home");
                         }
                     }
                     ModelState.AddModelError("", "Password or Email error.");
@@ -117,6 +124,37 @@ namespace Blog_System.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");
+        }
+
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _accountRepo.ChangePasswordAsync(model);
+                if (result.Succeeded)
+                {
+                    ViewBag.IsSuccess = true;
+                    ModelState.Clear();
+                    return View();
+                }
+                else
+                {
+                    ViewBag.IsSuccess = false;
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+            }
+            return View(model);
         }
     }
 }
