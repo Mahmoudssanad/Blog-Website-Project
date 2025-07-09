@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Blog_System.Controllers
@@ -24,7 +25,7 @@ namespace Blog_System.Controllers
     public class AccountController : Controller
     {
         private readonly UserManager<UserApplication> _userManager;
-        private readonly IAccountRepository _accountRepo;
+        private readonly IAccountRepository _accountRepo; // Because ChangePassword function only
         private readonly SignInManager<UserApplication> _signInManager; // when you need save data in cookie
 
         public AccountController(UserManager<UserApplication> userManager,
@@ -61,17 +62,18 @@ namespace Blog_System.Controllers
 
                 if(found != null)
                 {
+                    // بيعمل كدا هل اقدر استغا عنه؟؟Custome validation طب انا عامل اصلا Email لل duplicate هنا عشان ميعملش 
                     ModelState.AddModelError("", "Email Already Exist");
                 }
 
                 else
                 {
-                    // 2- Save new register in database
+                    // 2- Save new register in database by CreateAsync function
                     var result = await _userManager.CreateAsync(userApplication, userRegisteration.Password);
 
                     if (result.Succeeded)
                     {
-                        // Create Cookie
+                        // Create Cookie and save this user data into this cookie by SignInAsync
                         await _signInManager.SignInAsync(userApplication, true);
 
                         return RedirectToAction("Index", "Home");
@@ -138,10 +140,14 @@ namespace Blog_System.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _accountRepo.ChangePasswordAsync(model);
+
                 if (result.Succeeded)
                 {
                     ViewBag.IsSuccess = true;
+
+                    // عشان لو راح يغيرها تاني ميبقاش جواه النتيجه بتاع المره اللي قبلها 
                     ModelState.Clear();
+
                     return View();
                 }
                 else

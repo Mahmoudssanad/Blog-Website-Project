@@ -22,6 +22,8 @@ builder.Services.AddIdentity<UserApplication, IdentityRole>()
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<IPostRepository, PostRepository>();
 
 builder.Services.AddSession(x => x.IdleTimeout = TimeSpan.FromHours(1));
 

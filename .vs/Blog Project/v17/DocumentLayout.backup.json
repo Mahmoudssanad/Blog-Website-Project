@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\views\\account\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\views\\account\\changepassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\views\\post\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\views\\post\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\repositories\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\repositories\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\repositories\\postrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\repositories\\postrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProfileController.cs",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Controllers\\ProfileController.cs",
+              "RelativeDocumentMoniker": "Blog System\\Controllers\\ProfileController.cs",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Controllers\\ProfileController.cs",
+              "RelativeToolTip": "Blog System\\Controllers\\ProfileController.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAIwGkAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T12:46:42.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ChangePassword.cshtml",
-              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Views\\Account\\ChangePassword.cshtml",
-              "RelativeDocumentMoniker": "Blog System\\Views\\Account\\ChangePassword.cshtml",
-              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Views\\Account\\ChangePassword.cshtml*",
-              "RelativeToolTip": "Blog System\\Views\\Account\\ChangePassword.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Views\\Post\\Update.cshtml",
+              "RelativeDocumentMoniker": "Blog System\\Views\\Post\\Update.cshtml",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Views\\Post\\Update.cshtml*",
+              "RelativeToolTip": "Blog System\\Views\\Post\\Update.cshtml*",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-06T00:51:02.004Z",
+              "WhenOpened": "2025-07-08T04:58:19.821Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AccountController.cs",
-              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Controllers\\AccountController.cs",
-              "RelativeDocumentMoniker": "Blog System\\Controllers\\AccountController.cs",
-              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Controllers\\AccountController.cs*",
-              "RelativeToolTip": "Blog System\\Controllers\\AccountController.cs*",
-              "ViewState": "AgIAAHoAAAAAAAAAAAAcwJQAAAAuAAAAAAAAAA==",
+              "Title": "PostController.cs",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Controllers\\PostController.cs",
+              "RelativeDocumentMoniker": "Blog System\\Controllers\\PostController.cs",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Controllers\\PostController.cs",
+              "RelativeToolTip": "Blog System\\Controllers\\PostController.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAqwHkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T17:09:57.971Z",
+              "WhenOpened": "2025-07-07T17:01:29.647Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AccountRepository.cs",
-              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Repositories\\AccountRepository.cs",
-              "RelativeDocumentMoniker": "Blog System\\Repositories\\AccountRepository.cs",
-              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Repositories\\AccountRepository.cs",
-              "RelativeToolTip": "Blog System\\Repositories\\AccountRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Title": "PostRepository.cs",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Repositories\\PostRepository.cs",
+              "RelativeDocumentMoniker": "Blog System\\Repositories\\PostRepository.cs",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Repositories\\PostRepository.cs",
+              "RelativeToolTip": "Blog System\\Repositories\\PostRepository.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwBQAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-05T17:09:38.736Z",
+              "WhenOpened": "2025-07-08T13:09:44.071Z",
               "EditorCaption": ""
             }
           ]

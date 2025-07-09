@@ -51,15 +51,21 @@
                 <a href="@Url.Action("ChangePassword", "Account", new { id = Model.UserId })" class="btn btn-primary">
                     Change Password
                 </a>
+
+                <a href="@Url.Action("ShowYourPosts", "Post")" class="btn btn-primary">
+                    My Posts
+                </a>
             </div>
         }
         else
         {
              <div class="profile-actions">
              
-                 <a asp-action="EditProfile" asp-controller="Profile" class="btn btn-primary">Follwo</a>
-                 <a asp-action="EditProfile" asp-controller="Profile" class="btn btn-primary">Chating</a>
-
+                 <a asp-action="FollowUser" asp-controller="Follow" class="btn btn-primary">Follow</a>
+                 <a asp-action="#" asp-controller="#" class="btn btn-primary">Chating</a>
+                <a href="@Url.Action("ShowSpecificUserPosts", "Post", new { id = Model.UserId })" class="btn btn-primary">
+                    All Posts
+                </a>
              </div>
         }
     </div>

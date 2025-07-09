@@ -1,0 +1,57 @@
+﻿@using Blog_System.Models.Entities
+@model PostViewModel
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="mb-4">Edit Post</h2>
+
+            <form asp-action="Update" asp-controller="Post" method="post" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Content" class="form-label"></label>
+                    <textarea asp-for="Content" class="form-control" rows="5"></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+
+                @if (!string.IsNullOrEmpty(ViewBag.ImageURL))
+                {
+                    <div class="mb-3">
+                        <label class="form-label">Current Image</label><br />
+                        <img src="~/Uploads/@ViewBag.ImageURL" alt="Post Image" class="img-fluid rounded" style="max-height: 200px;" />
+                    </div>
+                }
+
+                <div class="mb-3">
+                    <label asp-for="ImageFile" class="form-label">Post Image</label>
+                    <input asp-for="ImageFile" class="form-control" type="file" />
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input asp-for="Visible" class="form-check-input" />
+                    <label asp-for="Visible" class="form-check-label">Visible to Public</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update Post</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

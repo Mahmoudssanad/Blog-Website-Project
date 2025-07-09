@@ -13,11 +13,10 @@ namespace Blog_System.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            //var authUser = await User.Identities.;
-
             var allUsers = _userRepository.GetAll();
             return View(allUsers);
         }
+
         public IActionResult GetById(string id)
         {
             var found = _userRepository.GetById(id);

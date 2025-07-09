@@ -46,6 +46,16 @@
                     Blog_System
                 </a>
 
+                <div class="container mt-3">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Post" asp-action="Add" class="btn btn-primary btn-sm mb-3">
+                            <i class="bi bi-plus-circle"></i> Add New Post
+                        </a>
+                    }
+                </div>
+
+
                 <!-- Mobile Toggle -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarContent" aria-controls="navbarContent"
@@ -75,20 +85,9 @@
                     <div class="d-flex align-items-center gap-3">
 
                         @* Notifications *@
-                        <div class="dropdown">
-                            <a class="nav-link position-relative" href="#" role="button" data-bs-toggle="dropdown">
-                                <i class="fas fa-bell fs-5"></i>
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    3
-                                </span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end shadow">
-                                <li><h6 class="dropdown-header">Notifications</h6></li>
-                                <li><a class="dropdown-item" href="#">You got a like!</a></li>
-                                <li><a class="dropdown-item" href="#">New comment on your post</a></li>
-                                <li><a class="dropdown-item" href="#">Follow request</a></li>
-                            </ul>
-                        </div>
+
+                        @await Component.InvokeAsync("Notification")
+
 
                         @* Messages *@
                         <div class="dropdown">
@@ -105,7 +104,7 @@
                             </ul>
                         </div>
 
-                        @* Profile image *@
+                        Profile image
                         @if (User.Identity.IsAuthenticated)
                         {
                             <a asp-controller="Profile" asp-action="Profile" asp-route-id="@currentUser.Id" class="d-flex align-items-center text-decoration-none">
@@ -130,6 +129,99 @@
             </div>
         </nav>
 
+        @* <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm border-bottom sticky-top py-2"> *@
+        @*     <div class="container-fluid px-4"> *@
+        @*         <!-- Left: Logo --> *@
+        @*         <a class="navbar-brand fw-bold text-primary fs-4" asp-controller="Home" asp-action="Index"> *@
+        @*             <i class="bi bi-facebook"></i> Blog_System *@
+        @*         </a> *@
+
+        @*         <!-- Center: Navigation Links --> *@
+        @*         <div class="collapse navbar-collapse justify-content-center" id="navbarContent"> *@
+        @*             <ul class="navbar-nav gap-3"> *@
+        @*                 <li class="nav-item"> *@
+        @*                     <a class="nav-link fw-semibold" asp-controller="Home" asp-action="Index">Home</a> *@
+        @*                 </li> *@
+        @*                 @if (User.Identity.IsAuthenticated) *@
+        @*                 { *@
+        @*                     <li class="nav-item"> *@
+        @*                         <a class="nav-link fw-semibold" asp-controller="User" asp-action="Index">Users</a> *@
+        @*                     </li> *@
+        @*                     <li class="nav-item"> *@
+        @*                         <a class="nav-link fw-semibold" href="#">Shorts</a> *@
+        @*                     </li> *@
+        @*                 } *@
+        @*             </ul> *@
+        @*         </div> *@
+
+        @*         <!-- Right: Icons, Actions --> *@
+        @*         <div class="d-flex align-items-center gap-3"> *@
+        @*             @if (User.Identity.IsAuthenticated) *@
+        @*             { *@
+        @*                 <!-- Add Post Button --> *@
+        @*                 <a asp-controller="Post" asp-action="Add" class="btn btn-primary btn-sm"> *@
+        @*                     <i class="bi bi-plus-circle"></i> *@
+        @*                 </a> *@
+
+        @*                 <!-- Notifications --> *@
+        @*                 @await Component.InvokeAsync("Notification") *@
+
+        @*                 <!-- Messages Icon --> *@
+        @*                 <div class="dropdown"> *@
+        @*                     <a class="nav-link position-relative" href="#" role="button" data-bs-toggle="dropdown"> *@
+        @*                         <i class="fas fa-envelope fs-5"></i> *@
+        @*                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"> *@
+        @*                             2 *@
+        @*                         </span> *@
+        @*                     </a> *@
+        @*                     <ul class="dropdown-menu dropdown-menu-end shadow"> *@
+        @*                         <li><h6 class="dropdown-header">Messages</h6></li> *@
+        @*                         <li><a class="dropdown-item" href="#">John: Hey, are you free?</a></li> *@
+        @*                         <li><a class="dropdown-item" href="#">Anna: Check this out!</a></li> *@
+        @*                     </ul> *@
+        @*                 </div> *@
+
+        @*                 <!-- Profile image --> *@
+        @*                 <a asp-controller="Profile" asp-action="Profile" asp-route-id="@currentUser.Id" class="d-flex align-items-center text-decoration-none"> *@
+        @*                     <img src="~/Images/@(currentUser.Image ?? "image.png")" *@
+        @*                          class="rounded-circle border" width="36" height="36" alt="Profile" *@
+        @*                          style="object-fit: cover;" /> *@
+        @*                 </a> *@
+
+        @*                 <!-- Logout --> *@
+        @*                 <form asp-controller="Account" asp-action="Logout" method="post"> *@
+        @*                     <button class="btn btn-outline-danger btn-sm">Logout</button> *@
+        @*                 </form> *@
+        @*             } *@
+        @*             else *@
+        @*             { *@
+        @*                 <form asp-controller="Account" asp-action="Login" method="get"> *@
+        @*                     <button class="btn btn-outline-primary btn-sm">Login</button> *@
+        @*                 </form> *@
+        @*             } *@
+        @*         </div> *@
+
+        @*         <!-- Toggle for mobile --> *@
+        @*         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"> *@
+        @*             <span class="navbar-toggler-icon"></span> *@
+        @*         </button> *@
+        @*     </div> *@
+        @* </nav> *@
+
+        <style>
+            .navbar-nav .nav-link {
+                color: #333;
+                transition: color 0.2s ease-in-out;
+            }
+
+                .navbar-nav .nav-link:hover {
+                    color: #0d6efd;
+                }
+
+            .navbar .btn {
+                padding: 0.4rem 0.6rem;
+            }
+        </style>
 
 
 

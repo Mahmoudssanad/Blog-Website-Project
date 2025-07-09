@@ -17,7 +17,7 @@ namespace Blog_System.Controllers
     public class ProfileController : Controller
     {
         private readonly UserManager<UserApplication> _userManager;
-        private readonly IWebHostEnvironment _hosting;
+        private readonly IWebHostEnvironment _hosting; // Image عشان ال 
 
         public ProfileController(UserManager<UserApplication> userManager, IWebHostEnvironment hosting)
         {
@@ -33,13 +33,21 @@ namespace Blog_System.Controllers
 
             if (string.IsNullOrEmpty(id)) // مسجل دخول اصلا logged-in يعني المستخدم 
             {
-                // User == HttpContext.User
+                // User(In controller) == HttpContext.User(any where but not in controller)
                 // => cookie اللي متخزنه في ال Claim عن طريق ال User بيحتوي علي كل المعلومات الخاصه بال ClaimsPrincipal المستخدم اللي مسجل دخول نوعه 
                 // GetUserAsync(User) => دا من الداتابيز User من ال object هيرجع
+
+                // Cookie من ال User الطريقه الاولي عشان اجيب بيها ال 
                 user = await _userManager.GetUserAsync(User);
+
+
+                // Cookie من ال User الطريقه التانيه عشان اجيب بيها ال 
+                //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                //user = await _userManager.FindByIdAsync(userId);
             }
             else
             {
+                // دا بتاعه من الداتا بيز id اللي ال user دا موجود هات ال id يعني لو ال 
                 user = await _userManager.FindByIdAsync(id);
                 if (user == null)
                 {
@@ -59,7 +67,7 @@ namespace Blog_System.Controllers
             result.UserId = user.Id;
             result.IsOwner = currentUserId == user.Id;
 
-            ViewBag.ProfileImage = result.Image;
+            //ViewBag.ProfileImage = result.Image;
 
             return View(result);
         }

@@ -10,17 +10,14 @@ namespace Blog_System.Repositories
     public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _context;
-        private readonly UserManager<UserApplication> _userManager;
         private readonly IHttpContextAccessor _httpContext;
 
-        public UserRepository(AppDbContext context, UserManager<UserApplication> userManager, IHttpContextAccessor httpContext)
+        public UserRepository(AppDbContext context, IHttpContextAccessor httpContext)
         {
             _context = context;
-            _userManager = userManager;
             _httpContext = httpContext;
         }
 
-        public UserManager<UserApplication> UserManager { get; }
 
         public void Add(UserApplication userApplication)
         {
@@ -35,9 +32,9 @@ namespace Blog_System.Repositories
         public List<UserApplication> GetAll()
         {
             // ماعدا اللي هو عامل تسجيل دخول Users عشان يجيب كل ال 
-            var user = _httpContext.HttpContext.User;
+            var userId = _httpContext.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var result = _context.Users.Where(x => x.Id != user.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
+            var result = _context.Users.Where(x => x.Id != userId).ToList();
 
             return result;
         }
