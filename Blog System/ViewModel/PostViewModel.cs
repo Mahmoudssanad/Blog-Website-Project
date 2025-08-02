@@ -11,5 +11,6 @@ namespace Blog_System.ViewModel
         public IFormFile? ImageFile { get; set; } // صورة البوست
 
         public bool Visible { get; set; } = true;
+        public bool IsFollow { get; set; } = true;
     }
 }

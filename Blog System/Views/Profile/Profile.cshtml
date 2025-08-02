@@ -13,11 +13,11 @@
         <div class="profile-image">
             @if(Model.Image != null)
             {
-                <img src="~/Images/@Model.Image" />
+                <img src="~/Uploads/@Model.Image" />
             }
             else
             {
-                <img src="~/Images/image.png" />
+                <img src="~/Uploads/image.png" />
             }
         </div>
 
@@ -55,14 +55,48 @@
                 <a href="@Url.Action("ShowYourPosts", "Post")" class="btn btn-primary">
                     My Posts
                 </a>
+
+                <a asp-action="GetFollowers" asp-controller="Follow" asp-route-id="@Model.UserApplication.Id" class="btn btn-sm btn-outline-secondary">
+                    MyFollowers(@Model.CountFollowers)
+                </a>
+
+                <a asp-action="GetFollowings" asp-controller="Follow" asp-route-userId="@Model.UserApplication.Id" class="btn btn-sm btn-outline-secondary">
+                    Followings(@Model.CountFollowings)
+                </a>
             </div>
         }
         else
         {
-             <div class="profile-actions">
-             
-                 <a asp-action="FollowUser" asp-controller="Follow" class="btn btn-primary">Follow</a>
+            <div class="profile-actions">
+
+                @if (Model.IsFollow)
+                {
+                    <a asp-action="UnFollow" asp-controller="Follow" asp-route-followingId="@Model.UserId"
+                    class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-person-plus"></i>
+                        UnFollow
+                    </a>
+                }
+                else
+                {
+                    <a asp-action="AddFollow" asp-controller="Follow" asp-route-targetUserId="@Model.UserId"
+                       class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-person-plus"></i>
+                        Follow
+                    </a>
+                }
+
+                <a asp-action="GetFollowers" asp-controller="Follow" asp-route-id="@Model.UserApplication.Id" class="btn btn-sm btn-outline-secondary">
+                    Followers(@Model.CountFollowers)
+                </a>
+
+                <a asp-action="GetFollowings" asp-controller="Follow" asp-route-userId="@Model.UserApplication.Id" class="btn btn-sm btn-outline-secondary">
+                    Followings(@Model.CountFollowings)
+                </a>
+
                  <a asp-action="#" asp-controller="#" class="btn btn-primary">Chating</a>
+
+
                 <a href="@Url.Action("ShowSpecificUserPosts", "Post", new { id = Model.UserId })" class="btn btn-primary">
                     All Posts
                 </a>

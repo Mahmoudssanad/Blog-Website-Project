@@ -13,7 +13,8 @@ namespace Blog_System.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var allUsers = _userRepository.GetAll();
+            var allUsers =  await _userRepository.GetAll();
+
             return View(allUsers);
         }
 

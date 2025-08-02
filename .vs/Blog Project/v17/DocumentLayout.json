@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\controllers\\postcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\repositories\\postrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\repositories\\postrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\servicies\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\servicies\\commentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\views\\post\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\views\\post\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\models\\entities\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\models\\entities\\comment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\views\\comment\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\views\\comment\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|d:\\back-end\\mvc projects\\blog system\\blog project\\blog system\\viewmodel\\postdetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FCA83D7F-4C06-4BFB-B039-DD567656E98A}|Blog System\\Blog System.csproj|solutionrelative:blog system\\viewmodel\\postdetailsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +34,84 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProfileController.cs",
-              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Controllers\\ProfileController.cs",
-              "RelativeDocumentMoniker": "Blog System\\Controllers\\ProfileController.cs",
-              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Controllers\\ProfileController.cs",
-              "RelativeToolTip": "Blog System\\Controllers\\ProfileController.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAIwGkAAAALAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Comment.cs",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Models\\Entities\\Comment.cs",
+              "RelativeDocumentMoniker": "Blog System\\Models\\Entities\\Comment.cs",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Models\\Entities\\Comment.cs",
+              "RelativeToolTip": "Blog System\\Models\\Entities\\Comment.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowBEAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T12:46:42.516Z",
+              "WhenOpened": "2025-07-31T05:03:40.194Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Update.cshtml",
-              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Views\\Post\\Update.cshtml",
-              "RelativeDocumentMoniker": "Blog System\\Views\\Post\\Update.cshtml",
-              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Views\\Post\\Update.cshtml",
-              "RelativeToolTip": "Blog System\\Views\\Post\\Update.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "PostDetailsViewModel.cs",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\ViewModel\\PostDetailsViewModel.cs",
+              "RelativeDocumentMoniker": "Blog System\\ViewModel\\PostDetailsViewModel.cs",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\ViewModel\\PostDetailsViewModel.cs",
+              "RelativeToolTip": "Blog System\\ViewModel\\PostDetailsViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T04:28:54.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Views\\Comment\\Details.cshtml",
+              "RelativeDocumentMoniker": "Blog System\\Views\\Comment\\Details.cshtml",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Views\\Comment\\Details.cshtml",
+              "RelativeToolTip": "Blog System\\Views\\Comment\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T04:58:19.821Z",
+              "WhenOpened": "2025-07-31T04:14:26.146Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PostController.cs",
-              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Controllers\\PostController.cs",
-              "RelativeDocumentMoniker": "Blog System\\Controllers\\PostController.cs",
-              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Controllers\\PostController.cs",
-              "RelativeToolTip": "Blog System\\Controllers\\PostController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIAAAAByAAAAAAAAAA==",
+              "Title": "CommentController.cs",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Controllers\\CommentController.cs",
+              "RelativeDocumentMoniker": "Blog System\\Controllers\\CommentController.cs",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Controllers\\CommentController.cs",
+              "RelativeToolTip": "Blog System\\Controllers\\CommentController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwBoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T17:01:29.647Z",
+              "WhenOpened": "2025-07-31T03:59:23.07Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PostRepository.cs",
-              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Repositories\\PostRepository.cs",
-              "RelativeDocumentMoniker": "Blog System\\Repositories\\PostRepository.cs",
-              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Repositories\\PostRepository.cs",
-              "RelativeToolTip": "Blog System\\Repositories\\PostRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIEAAAAAAAAAAAAAAA==",
+              "Title": "CommentService.cs",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Servicies\\CommentService.cs",
+              "RelativeDocumentMoniker": "Blog System\\Servicies\\CommentService.cs",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Servicies\\CommentService.cs",
+              "RelativeToolTip": "Blog System\\Servicies\\CommentService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAACEAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T13:09:44.071Z",
+              "WhenOpened": "2025-07-31T03:59:55.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Blog System\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Blog System\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAswJsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-26T23:28:25.945Z",
               "EditorCaption": ""
             }
           ]

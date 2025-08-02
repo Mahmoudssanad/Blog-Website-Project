@@ -30,9 +30,13 @@ namespace Blog_System.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("CommentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Content")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -40,7 +44,7 @@ namespace Blog_System.Migrations
                     b.Property<bool>("IsEdited")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ParentCommentId")
+                    b.Property<int?>("ParentCommentId")
                         .HasColumnType("int");
 
                     b.Property<int>("PostId")
@@ -52,11 +56,31 @@ namespace Blog_System.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CommentId");
+
                     b.HasIndex("PostId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("Blog_System.Models.Entities.Follow", b =>
+                {
+                    b.Property<string>("FollowingId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("FollowerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("FollowDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("FollowingId", "FollowerId");
+
+                    b.HasIndex("FollowerId");
+
+                    b.ToTable("Follows");
                 });
 
             modelBuilder.Entity("Blog_System.Models.Entities.Friend", b =>
@@ -90,13 +114,13 @@ namespace Blog_System.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CommentId")
+                    b.Property<int?>("CommentId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PostId")
+                    b.Property<int?>("PostId")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
@@ -109,7 +133,13 @@ namespace Blog_System.Migrations
 
                     b.HasIndex("PostId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId", "CommentId")
+                        .IsUnique()
+                        .HasFilter("[CommentId] IS NOT NULL");
+
+                    b.HasIndex("UserId", "PostId")
+                        .IsUnique()
+                        .HasFilter("[PostId] IS NOT NULL");
 
                     b.ToTable("Likes");
                 });
@@ -430,6 +460,10 @@ namespace Blog_System.Migrations
 
             modelBuilder.Entity("Blog_System.Models.Entities.Comment", b =>
                 {
+                    b.HasOne("Blog_System.Models.Entities.Comment", null)
+                        .WithMany("Replies")
+                        .HasForeignKey("CommentId");
+
                     b.HasOne("Blog_System.Models.Entities.Post", "Post")
                         .WithMany("Comments")
                         .HasForeignKey("PostId")
@@ -447,6 +481,25 @@ namespace Blog_System.Migrations
                     b.Navigation("UserApplication");
                 });
 
+            modelBuilder.Entity("Blog_System.Models.Entities.Follow", b =>
+                {
+                    b.HasOne("Blog_System.Models.Entities.UserApplication", "Follower")
+                        .WithMany()
+                        .HasForeignKey("FollowerId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Blog_System.Models.Entities.UserApplication", "Following")
+                        .WithMany()
+                        .HasForeignKey("FollowingId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Follower");
+
+                    b.Navigation("Following");
+                });
+
             modelBuilder.Entity("Blog_System.Models.Entities.Friend", b =>
                 {
                     b.HasOne("Blog_System.Models.Entities.UserApplication", "UserApplication")
@@ -462,15 +515,11 @@ namespace Blog_System.Migrations
                 {
                     b.HasOne("Blog_System.Models.Entities.Comment", "Comment")
                         .WithMany("Likes")
-                        .HasForeignKey("CommentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CommentId");
 
                     b.HasOne("Blog_System.Models.Entities.Post", "Post")
                         .WithMany("Likes")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PostId");
 
                     b.HasOne("Blog_System.Models.Entities.UserApplication", "UserApplication")
                         .WithMany("Likes")
@@ -567,6 +616,8 @@ namespace Blog_System.Migrations
             modelBuilder.Entity("Blog_System.Models.Entities.Comment", b =>
                 {
                     b.Navigation("Likes");
+
+                    b.Navigation("Replies");
                 });
 
             modelBuilder.Entity("Blog_System.Models.Entities.Post", b =>

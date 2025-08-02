@@ -49,15 +49,17 @@
                 <span asp-validation-for="ImageFile" class="text-danger"></span>
                 @if (Model.Image != null)
                 {
-                    <img src="~/Images/@Model.Image" style="width: 64px;" class="img-thumbnail" />
+                    <img src="~/Uploads/@Model.Image" style="width: 64px;" class="img-thumbnail" />
                 }
                 else
                 {
-                    <img src="~/Images/image.png" style="width: 64px;" class="img-thumbnail" />
+                    <img src="~/Uploads/image.png" style="width: 64px;" class="img-thumbnail" />
                 }
             </div>
 
             <button type="submit" class="btn">Save Changes</button>
+            <button asp-action="Index" , asp-controller="Home">Cancel</button>
+
         </form>
     </div>
 </div>

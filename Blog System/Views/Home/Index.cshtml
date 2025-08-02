@@ -1,6 +1,9 @@
 ﻿@using Blog_System.Models.Entities
 @using System.Security.Claims
+@using Blog_System.Servicies
+
 @model List<Post>
+
 
 @{
     ViewData["Title"] = "Home Page";
@@ -13,12 +16,45 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
+
+@* Add this modal outside the foreach *@
+<div class="modal fade" id="likesModal" tabindex="-1" aria-labelledby="likesModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="likesModalLabel">Liked by</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul id="likesList" class="list-group">
+                    <!-- Users will be injected here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="commentsModal" tabindex="-1" aria-labelledby="commentsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="commentsModalLabel">Commented by</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul id="commentsList" class="list-group">
+                    <!-- Users will be injected here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="container py-4">
-    <h2 class="mb-4">News Feed</h2>
 
     @foreach (var post in Model)
     {
-
         <div class="card shadow-sm mb-4">
 
             <div class="card-body">
@@ -28,35 +64,35 @@
 
                     <!-- Left Side: User Image + Name + Date -->
                     <div class="d-flex align-items-center">
-                        <img src="~/Images/@(post.UserApplication.Image ?? "default.png")"
-                             alt="User image"
-                             class="rounded-circle border"
-                             width="50"
-                             height="50" />
+                        <img src="~/Uploads/@(post.UserApplication.Image ?? "default.png")"
+                        alt="User image"
+                        class="rounded-circle border"
+                        width="50"
+                        height="50" />
 
+                        <!--User Profile-->
                         <div class="ms-2">
                             <a asp-action="Profile" asp-controller="Profile" asp-route-id="@post.UserId"
-                               class="text-dark fw-bold text-decoration-none">
+                            class="text-dark fw-bold text-decoration-none">
                                 @post.UserApplication.UserName
                             </a>
+
+                            @* --- Date --- *@
                             <div class="text-muted small">@post.PublichDate.ToString("f")</div>
                         </div>
                     </div>
 
+                    <!-- Edit Post-->
                     @if (post.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier))
                     {
                         <a asp-action="Update" asp-controller="Post" asp-route-id="@post.Id"
-                           class="btn btn-outline-primary btn-sm">
+                        class="btn btn-outline-primary btn-sm">
                             <i class="bi bi-pencil-square"></i> Edit
                         </a>
 
-                    }
-
-                    <!-- Right Side: Delete Button -->
-                    @if (post.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier))
-                    {
+                        <!-- Right Side: Delete Button -->
                         <form asp-action="Delete" asp-controller="Post" asp-route-id="@post.Id"
-                              method="post"
+                              method="post" class="d-inline"
                               onsubmit="return confirm('Are you sure you want to delete this post?');">
                             <button type="submit"
                                     class="btn btn-outline-danger btn-sm "
@@ -65,7 +101,10 @@
                             </button>
                         </form>
                     }
+               
+                    
                 </div>
+
 
                 <!-- Post Title -->
                 @if (!string.IsNullOrWhiteSpace(post.Title))
@@ -73,28 +112,154 @@
                     <h5 class="fw-bold">@post.Title</h5>
                 }
 
+
+
                 <!-- Post Content -->
                 <p class="mb-2">@post.Content</p>
+
 
                 <!-- Post Image -->
                 @if (!string.IsNullOrWhiteSpace(post.ImageURL))
                 {
                     <img src="~/Uploads/@post.ImageURL"
-                         class="img-fluid rounded mb-2"
-                         alt="Post image" />
+                    class="img-fluid rounded mb-2"
+                    alt="Post image" />
                 }
+
+
+                <!--Likes Post count-->
+                <a data-bs-toggle="modal" data-bs-target="#likesModal" data-post-id="@post.Id">(@post.Likes.Count) persons liked the post</a>
+                <a data-bs-toggle="modal" data-bs-target="#commentsModal" data-post-id="@post.Id">(@post.Comments.Count) persons Commented the post</a>
+
 
                 <!-- Like & Comment Buttons -->
                 <div class="d-flex justify-content-between mt-3">
-                    <button class="btn btn-outline-primary btn-sm">
-                        <i class="bi bi-hand-thumbs-up"></i> Like (@post.Likes.Count)
+
+                    <div hidden>
+                        @Html.AntiForgeryToken()
+                    </div>
+
+                    @* <button class="btn btn-outline-primary btn-sm" id="likeAction"> *@
+                    @*     <i class="bi bi-hand-thumbs-up"></i> Like  *@
+                    @* </button> *@
+
+                    @* <input type="hidden" id="__RequestVerificationToken"  /> *@
+
+                    <button class="btn btn-outline-primary btn-sm like-toggle"
+                            data-post-id="@post.Id" id="like-btn-@post.Id">
+                        <i class="bi bi-hand-thumbs-up"></i>
+                        <span class="like-text">Like</span> (<span id="like-count-@post.Id">@post.Likes.Count</span>)
                     </button>
-                    <button class="btn btn-outline-secondary btn-sm">
-                        <i class="bi bi-chat-dots"></i> Comment (@post.Comments.Count)
-                    </button>
+
+                    <a asp-action="Details" asp-controller="Comment" asp-route-postId="@post.Id" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-chat-dots"></i>
+                        Comment (@post.Comments.Count)
+                    </a>
+
                 </div>
 
             </div>
         </div>
     }
 </div>
+
+
+
+@section Scripts {
+    <script>
+        const likesModal = document.getElementById('likesModal');
+
+        likesModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const postId = button.getAttribute('data-post-id');
+            const likesList = document.getElementById('likesList');
+            likesList.innerHTML = '<li class="list-group-item">Loading...</li>';
+
+            fetch(`/Post/GetLikes/${postId}`)
+                .then(res => res.json())
+                .then(data => {
+                    likesList.innerHTML = '';
+                    if (data.length === 0) {
+                        likesList.innerHTML = '<li class="list-group-item">No likes yet.</li>';
+                        return;
+                    }
+                    data.forEach(user => {
+                        likesList.innerHTML += `
+                            <li class="list-group-item d-flex align-items-center">
+                                <img src="/Uploads/${user.image ?? 'default.png'}" class="rounded-circle me-2" width="30" height="30" />
+                                ${user.userName}
+                            </li>`;
+                    });
+                })
+                .catch(err => {
+                    likesList.innerHTML = '<li class="list-group-item text-danger">Failed to load likes.</li>';
+                });
+        });
+    </script>
+
+    <script>
+        const commentsModal = document.getElementById('commentsModal');
+
+        likesModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const postId = button.getAttribute('data-post-id');
+            const commentsList = document.getElementById('commentsList');
+            commentsList.innerHTML = '<li class="list-group-item">Loading...</li>';
+
+            fetch(`/Comment/GetAll/${CommentId}`) // مش متاكد من دي
+                .then(res => res.json())
+                .then(data => {
+                    commentsList.innerHTML = '';
+                    if (data.length === 0) {
+                        likesList.innerHTML = '<li class="list-group-item">No likes yet.</li>';
+                        return;
+                    }
+                    data.forEach(user => {
+                        commentsList.innerHTML += `
+                            <li class="list-group-item d-flex align-items-center">
+                                <img src="/Uploads/${user.image ?? 'default.png'}" class="rounded-circle me-2" width="30" height="30" />
+                                ${user.userName}
+                            </li>`;
+                    });
+                })
+                .catch(err => {
+                    commentsList.innerHTML = '<li class="list-group-item text-danger">Failed to load comments.</li>';
+                });
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('.like-toggle').forEach(button => {
+            button.addEventListener('click', async function () {
+                const postId = this.getAttribute('data-post-id');
+                // const token = document.getElementById('__RequestVerificationToken').value;
+                const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+                const response = await fetch('/Post/ToggleLike', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken': token
+                    },
+                    body: JSON.stringify({ postId: parseInt(postId) })
+                });
+
+                const result = await response.json();
+                const btn = document.getElementById(`like-btn-${postId}`);
+                const countSpan = document.getElementById(`like-count-${postId}`);
+
+                if (result.status === 'liked') {
+                    btn.querySelector('.like-text').textContent = 'Dislike';
+                    btn.classList.remove('btn-outline-primary');
+                    btn.classList.add('btn-primary');
+                } else if (result.status === 'disliked') {
+                    btn.querySelector('.like-text').textContent = 'Like';
+                    btn.classList.remove('btn-primary');
+                    btn.classList.add('btn-outline-primary');
+                }
+
+                countSpan.textContent = result.likeCount;
+            });
+        });
+    </script>
+}

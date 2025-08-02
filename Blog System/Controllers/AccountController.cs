@@ -125,7 +125,7 @@ namespace Blog_System.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Login");
         }
 
         [HttpGet]

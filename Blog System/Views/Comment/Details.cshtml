@@ -1,0 +1,22 @@
+﻿@model PostDetailsViewModel
+
+<h2>@Model.Post.Title</h2>
+<p>@Model.Post.Content</p>
+<p>@Model.Post.Id</p>
+<img src="/Uploads/@Model.Post.ImageURL"/>
+
+<form asp-action="Add" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="PostId" value="@Model.Post.Id" />
+    <textarea asp-for="NewComment.Content" class="form-control"></textarea>
+    <span asp-validation-for="NewComment.Content" class="text-danger"></span>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<hr />
+
+<h4>Comments:</h4>
+@foreach (var comment in Model.Comments)
+{
+    <div><strong>@comment.UserApplication?.UserName</strong>: @comment.Content</div>
+}

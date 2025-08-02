@@ -24,8 +24,16 @@ builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IPostRepository, PostRepository>();
+builder.Services.AddScoped<IFollowService, FollowService>();
+builder.Services.AddScoped<ILikeService, LikeService>();
+builder.Services.AddScoped<ICommentService, CommentService>();
 
 builder.Services.AddSession(x => x.IdleTimeout = TimeSpan.FromHours(1));
+
+builder.Services.AddAntiforgery(options => {
+    options.HeaderName = "RequestVerificationToken";
+    options.Cookie.Name = "X-CSRF-TOKEN";
+});
 
 //„‰ «Ì Õ Â Ì⁄‰Ì  Controller «·Õ«·Ì Ê«‰« „‘ ›Ì «· User ⁄‘«‰ ·Ê ⁄«Ê“ «ÃÌ» «· 
 builder.Services.AddHttpContextAccessor();

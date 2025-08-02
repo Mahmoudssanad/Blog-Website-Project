@@ -12,11 +12,14 @@ namespace Blog_System.Models.Entities
         public UserApplication UserApplication { get; set; }
 
         [ForeignKey("Post")]
-        public int PostId { get; set; }
+        public int? PostId { get; set; }
         public Post Post { get; set; }
 
         [ForeignKey("Comment")]
-        public int CommentId { get; set; }
+        public int? CommentId { get; set; }
         public Comment Comment { get; set; }
+
+        //public int TargetId { get; set; }
+        //public string Target { get; set; }
     }
 }

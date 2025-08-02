@@ -1,5 +1,6 @@
 ﻿using Blog_System.Models.Data;
 using Blog_System.Models.Entities;
+using Blog_System.Servicies;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
@@ -11,11 +12,13 @@ namespace Blog_System.Repositories
     {
         private readonly AppDbContext _context;
         private readonly IHttpContextAccessor _httpContext;
+        private readonly IFollowService _followService;
 
-        public UserRepository(AppDbContext context, IHttpContextAccessor httpContext)
+        public UserRepository(AppDbContext context, IHttpContextAccessor httpContext, IFollowService followService)
         {
             _context = context;
             _httpContext = httpContext;
+            _followService = followService;
         }
 
 
@@ -29,12 +32,15 @@ namespace Blog_System.Repositories
             throw new NotImplementedException();
         }
 
-        public List<UserApplication> GetAll()
+        public async Task<List<UserApplication>> GetAll()
         {
             // ماعدا اللي هو عامل تسجيل دخول Users عشان يجيب كل ال 
             var userId = _httpContext.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var result = _context.Users.Where(x => x.Id != userId).ToList();
+            var followedUsersId = (await _followService.GetFollwingsAsync(userId)).Select(x => x.Id);
+
+
+            var result = _context.Users.Where(x => x.Id != userId && !(followedUsersId.Contains(x.Id))).ToList();
 
             return result;
         }

@@ -1,11 +1,13 @@
 ﻿using Blog_System.Models.Data;
 using Blog_System.Models.Entities;
 using Blog_System.Repositories;
+using Blog_System.Servicies;
 using Blog_System.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Hosting;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -15,15 +17,23 @@ namespace Blog_System.Controllers
     {
         private readonly IPostRepository _postRepository;
         private readonly IWebHostEnvironment _webHost;
+        private readonly IFollowService _followService;
+        private readonly ILikeService _likeService;
 
-        public PostController(IPostRepository postRepository, IWebHostEnvironment webHost)
+        public PostController(IPostRepository postRepository, IWebHostEnvironment webHost, IFollowService followService, ILikeService likeService)
         {
             _postRepository = postRepository;
             _webHost = webHost;
+            _followService = followService;
+            _likeService = likeService;
         }
-        public IActionResult GetAll()
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
         {
-            return View(_postRepository.GetAll());
+            var posts = await _postRepository.GetAll();
+
+            return View(posts);
         }
 
         [HttpGet]
@@ -140,6 +150,56 @@ namespace Blog_System.Controllers
                 return NotFound();
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetLikes(int id)
+        {
+            var likes = await _likeService.GetUsersWhoLikedPost(id);
+
+            return Json(likes);
+        }
+
+        [HttpPost]
+        public JsonResult ToggleLike01(int postId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var existing = _likeService.IsPostLikedByUser(userId, postId);
+
+            if (existing != null)
+            {
+                _likeService.DeleteLikeFromPost(userId, postId);
+                return Json(new { status = "disliked" });
+            }
+            else
+            {
+                _likeService.AddLikeToPost(userId, postId);
+                 return Json(new { status = "liked" });
+            }
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> ToggleLike([FromBody] dynamic data)
+        {
+            int postId = (int)data.postId;
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var existing = await _likeService.IsPostLikedByUser(userId, postId);
+
+            if (existing != null)
+            {
+                await _likeService.DeleteLikeFromPost(userId, postId);
+            }
+            else
+            {
+                await _likeService.AddLikeToPost(userId, postId);
+            }
+
+            int likeCount = await _likeService.GetPostLikesCountAsync(postId);
+            string status = existing != null ? "disliked" : "liked";
+
+            return Json(new { status, likeCount });
         }
     }
 }

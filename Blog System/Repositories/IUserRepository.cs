@@ -6,7 +6,7 @@ namespace Blog_System.Repositories
     {
         // CRUD Operations
 
-        public List<UserApplication> GetAll();
+        public Task<List<UserApplication>> GetAll();
         public UserApplication GetById(string Id);
         public void Add(UserApplication userApplication);
         public void update(UserApplication userApplication, string Id);

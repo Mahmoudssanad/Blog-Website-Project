@@ -1,5 +1,6 @@
 ﻿using Blog_System.Models.Data;
 using Blog_System.Models.Entities;
+using Blog_System.Servicies;
 using Blog_System.ViewModel;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
@@ -12,13 +13,16 @@ namespace Blog_System.Repositories
         private readonly AppDbContext _context;
         private readonly IHttpContextAccessor _httpContext;
         private readonly IWebHostEnvironment _webHost;
+        private readonly IFollowService _followService;
 
         // هتظهرله ازي في الصفحه بتاعته not visible البوستات اللي المستخدم عاملها 
-        public PostRepository(AppDbContext context, IHttpContextAccessor httpContext, IWebHostEnvironment webHost)
+        public PostRepository(AppDbContext context, IHttpContextAccessor httpContext,
+            IWebHostEnvironment webHost, IFollowService followService)
         {
             _context = context;
             _httpContext = httpContext;
             _webHost = webHost;
+            _followService = followService;
         }
 
 
@@ -41,12 +45,23 @@ namespace Blog_System.Repositories
             }
         }
 
-        public List<Post> GetAll()
+        public async Task<List<Post>> GetAll()
         {
-            // Include(x => x.UserId) => navigation property بتاعه, عشان كدا لازم يكون فيه post مع ال User عشان اجيب بيانات ال 
+            // Include(x => x.UserApplication) => navigation property بتاعه, عشان كدا لازم يكون فيه post مع ال User عشان اجيب بيانات ال 
 
-            var posts =  _context.Posts.Where(x => x.Visible).Include(x => x.UserApplication)
-                .ToList();
+            var currentUserId = _httpContext.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            // Follow اللي انا عامل ليهم Users روحت عشان اجيب ال 
+            var followedUsers = await _followService.GetFollwingsAsync(currentUserId);
+
+            var followedUsersId = followedUsers.Select(x => x.Id).ToList();
+
+            var posts = await _context.Posts
+                .Where(x => x.Visible && followedUsersId.Contains(x.UserId) || (x.UserId == currentUserId && x.Visible))
+                .Include(x => x.UserApplication )
+                .Include(x => x.Likes)
+                .OrderByDescending(x => x.PublichDate)
+                .ToListAsync();
 
             return posts;
         }
@@ -124,6 +139,11 @@ namespace Blog_System.Repositories
 
             await _context.SaveChangesAsync();
             return true;
+        }
+
+        public async Task Save()
+        {
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -1,0 +1,54 @@
+﻿@using Blog_System.Models.Entities
+@using System.Security.Claims
+@using Blog_System.Servicies
+
+@inject IFollowService _followService
+@model List<UserApplication>
+
+@{
+    ViewData["Title"] = "GetFollowings";
+}
+
+
+<h3>@Model.Count following(s)</h3>
+
+<ul class="list-group">
+    @foreach (var followed in Model)
+    {
+        <li class="list-group-item d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+                <img src="~/Uploads/@(followed.Image ?? "image.png")"
+                     class="rounded-circle me-3"
+                     style="width: 45px; height: 45px; object-fit: cover;" />
+
+                <a asp-controller="Profile" asp-action="Profile" asp-route-id="@followed.Id"
+                   class="fw-semibold text-dark text-decoration-none">
+                    @followed.UserName
+                </a>
+            </div>
+
+            <div>
+                @{
+                    var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    var isFollowing = await _followService.IsFollowingAsync(currentUserId, followed.Id);
+                }
+
+                @if (isFollowing)
+                {
+                    <a asp-action="UnFollow" asp-controller="Follow" asp-route-followingId="@followed.Id"
+                       class="btn btn-outline-danger btn-sm px-3">
+                        UnFollow
+                    </a>
+                }
+                else
+                {
+                    <a asp-action="AddFollow" asp-controller="Follow" asp-route-targetUserId="@followed.Id"
+                       class="btn btn-outline-primary btn-sm px-3">
+                        Follow
+                    </a>
+                }
+            </div>
+        </li>
+
+    }
+</ul>

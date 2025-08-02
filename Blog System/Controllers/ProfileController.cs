@@ -1,8 +1,12 @@
 ﻿using Blog_System.Models.Entities;
+using Blog_System.Repositories;
+using Blog_System.Servicies;
 using Blog_System.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using System.Security.Claims;
@@ -18,11 +22,16 @@ namespace Blog_System.Controllers
     {
         private readonly UserManager<UserApplication> _userManager;
         private readonly IWebHostEnvironment _hosting; // Image عشان ال 
+        private readonly IPostRepository _postRepository;
+        private readonly IFollowService _followService;
 
-        public ProfileController(UserManager<UserApplication> userManager, IWebHostEnvironment hosting)
+        public ProfileController(UserManager<UserApplication> userManager,
+            IWebHostEnvironment hosting, IPostRepository postRepository, IFollowService followService)
         {
             _userManager = userManager;
             _hosting = hosting;
+            _postRepository = postRepository;
+            _followService = followService;
         }
 
 
@@ -57,6 +66,8 @@ namespace Blog_System.Controllers
 
             var currentUserId = _userManager.GetUserId(User);
 
+            var isFollowing = await _followService.IsFollowingAsync(currentUserId, id);
+
             ProfileViewModel result = new ProfileViewModel();
             result.Email = user.Email;
             result.BirthDate = user.BirthDate;
@@ -65,9 +76,14 @@ namespace Blog_System.Controllers
             result.UserName = user.UserName;
             result.Image = user.Image;
             result.UserId = user.Id;
+
             result.IsOwner = currentUserId == user.Id;
 
-            //ViewBag.ProfileImage = result.Image;
+            result.UserApplication = user;
+            result.IsFollow = isFollowing;
+
+            result.CountFollowers = await _followService.GetFollowerCountAsync(id);
+            result.CountFollowings = await _followService.GetFollowingCountAsync(id);
 
             return View(result);
         }
@@ -95,12 +111,21 @@ namespace Blog_System.Controllers
             return View(result);
         }
 
-            
+        // اللي هيشاور عليها Method بتاع ال Signature بياخد نفس ال 
+        public delegate Task AddPostDelegate(PostViewModel post);
+
+        // Instance of delegate => Method عشان اشاور بيه علي ال 
+        public AddPostDelegate addPostDelegate;
+
         [HttpPost]
-        [ValidateAntiForgeryToken] // => RdirectToAction وامتا اعمل return View امتا اعمل 
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditProfile(ProfileViewModel userProfile)
-        {   
+        {
+
             var user = await _userManager.GetUserAsync(User);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            string oldImage = user.Image;
 
             if (user == null)
                 return NotFound();
@@ -112,8 +137,9 @@ namespace Blog_System.Controllers
 
                     if (userProfile.ImageFile != null)
                     {
+                        
                         // Upload اللي اليوزر هيعمل ليها Images بجيب الملف اللي هضع فيه ال 
-                        string uploads = Path.Combine(_hosting.WebRootPath, "Images");
+                        string uploads = Path.Combine(_hosting.WebRootPath, "Uploads");
 
                         // للحصول علي اسم الملف
                         fileName = userProfile.ImageFile.FileName;
@@ -121,17 +147,29 @@ namespace Blog_System.Controllers
                         string fullPath = Path.Combine(uploads, fileName);
 
                         // نقوم بإنشاء الملف fullPath بعد ما نديله ال 
-                        userProfile.ImageFile.CopyTo(new FileStream(fullPath, FileMode.Create));
-
-                        // delete old image if found
-                        if (!string.IsNullOrEmpty(userProfile.Image))
-                        {
-                            var oldPath = Path.Combine(uploads, userProfile.Image);
-                            if (System.IO.File.Exists(oldPath))
-                                System.IO.File.Delete(oldPath);
-                        }
+                        await userProfile.ImageFile.CopyToAsync(new FileStream(fullPath, FileMode.Create));
 
                         user.Image = fileName;
+
+                        // craete post by old image if found
+                        if (oldImage != null)
+                        {
+                            var oldPath = Path.Combine(uploads, oldImage);
+                            if (System.IO.File.Exists(oldPath))
+                            {
+                                var newPost = new Post
+                                {
+                                    ImageURL = oldImage,
+                                    Title = null,
+                                    Content = "Old Profile Photo",
+                                    PublichDate = DateTime.Now,
+                                    Visible = true,
+                                    UserId = userId
+                                };
+                                await _postRepository.Add(newPost);
+                                await _postRepository.Save();
+                            }
+                        }
                     }
 
 

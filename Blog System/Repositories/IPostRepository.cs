@@ -12,9 +12,11 @@ namespace Blog_System.Repositories
 
         Task Delete(int id);
 
+        Task Save();
+
         Task<Post> GetById(int id);
 
-        List<Post> GetAll();
+        Task<List<Post>> GetAll();
 
         Task<List<Post>> GetByUserIdAndShowNotVisible(string userId);
 

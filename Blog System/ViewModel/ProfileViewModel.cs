@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Blog_System.Models.Entities;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,5 +20,11 @@ namespace Blog_System.ViewModel
         public string? UserId { get; set; }
 
         public bool IsOwner { get; set; } // To show/hide "Edit" button
+
+        public bool IsFollow { get; set; }
+        public UserApplication? UserApplication { get; set; }
+
+        public int CountFollowers {  get; set; }
+        public int CountFollowings {  get; set; }
     }
 }

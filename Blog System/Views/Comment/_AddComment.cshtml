@@ -1,0 +1,13 @@
+﻿@model CommentInputViewModel
+
+<form id="commentForm-@Model.PostId" data-post-id="@Model.PostId" class="mb-3">
+    <input type="hidden" name="PostId" value="@Model.PostId" />
+    <input type="hidden" name="ParentCommentId" value="@Model.ParentCommentId" />
+
+    <div class="mb-2">
+        <textarea name="Content" class="form-control" rows="2" placeholder="Write a comment..." maxlength="1000" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-sm">Comment</button>
+</form>
+

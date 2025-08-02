@@ -16,9 +16,9 @@ namespace Blog_System.Controllers
             _postRepository = postRepository;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var posts = _postRepository.GetAll();
+            var posts = await _postRepository.GetAll();
             return View(posts);
         }
 

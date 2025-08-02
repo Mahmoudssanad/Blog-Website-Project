@@ -1,0 +1,8 @@
+﻿
+@model Blog_System.Models.Entities.Comment
+
+<div class="comment border rounded p-2 mb-2">
+    <strong>@Model.UserApplication?.UserName</strong>:
+    <p>@Model.Content</p>
+    <small class="text-muted">@Model.CreatedAt.ToString("g")</small>
+</div>
