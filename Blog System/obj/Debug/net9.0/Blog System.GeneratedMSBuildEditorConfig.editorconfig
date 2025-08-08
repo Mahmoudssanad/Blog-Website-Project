@@ -96,6 +96,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Back-end/MVC Projects/Blog System/Blog Project/Blog System/Views/Search/SearchUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoXFNlYXJjaFVzZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Back-end/MVC Projects/Blog System/Blog Project/Blog System/Views/Shared/Components/Notification/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTm90aWZpY2F0aW9uXERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

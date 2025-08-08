@@ -9,33 +9,32 @@
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 <link rel="stylesheet" href="~/Blog_System.styles.css" asp-append-version="true" />
 
-<h1>Login</h1>
-
-<div class="form-container">
-    <h2 class="text-center mb-4">Welcome Back</h2>
-
-    <form asp-action="SaveLogin" asp-controller="Account" method="post" class="needs-validation" novalidate>
-        <div asp-validation-summary="All" class="text-danger mb-3"></div>
-
-        <div class="mb-3">
-            <label asp-for="Email" class="form-label"></label>
-            <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-
-        <div class="mb-3">
-            <label asp-for="Password" class="form-label"></label>
-            <input asp-for="Password" class="form-control" />
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-
-        <Input type="submit" class="btn btn-primary w-100" value="Sign in"/>
-    </form>
-</div>
-
 <div>
-    <p>Do not have an account?<a asp-action="Register">Sign up</a></p>
+    <div class="text-center pt-5">
+        <h2 class="text-center mb-4">Welcome Back</h2>
+
+        <form asp-action="SaveLogin" asp-controller="Account" method="post" class="needs-validation" novalidate>
+            <div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+            <div class="mb-3 text-start">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 text-start">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <Input type="submit" class="btn btn-primary w-100" value="Sign in" />
+        </form>
+
+        <p>Do not have an account?<a asp-action="Register">Sign up</a></p>
+    </div>
 </div>
+
 
 <script src="~/lib/jquery/dist/jquery.min.js"> </script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>

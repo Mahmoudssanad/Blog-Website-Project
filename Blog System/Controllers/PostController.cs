@@ -182,24 +182,27 @@ namespace Blog_System.Controllers
         [HttpPost]
         public async Task<JsonResult> ToggleLike([FromBody] dynamic data)
         {
+            return Json(new { data.postId });
+
             int postId = (int)data.postId;
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var existing = await _likeService.IsPostLikedByUser(userId, postId);
 
-            if (existing != null)
-            {
-                await _likeService.DeleteLikeFromPost(userId, postId);
-            }
-            else
-            {
-                await _likeService.AddLikeToPost(userId, postId);
-            }
+            //var existing = await _likeService.IsPostLikedByUser(userId, postId);
 
-            int likeCount = await _likeService.GetPostLikesCountAsync(postId);
-            string status = existing != null ? "disliked" : "liked";
+            //if (existing != null)
+            //{
+            //    await _likeService.DeleteLikeFromPost(userId, postId);
+            //}
+            //else
+            //{
+            //    await _likeService.AddLikeToPost(userId, postId);
+            //}
 
-            return Json(new { status, likeCount });
+            //int likeCount = await _likeService.GetPostLikesCountAsync(postId);
+            //string status = existing != null ? "disliked" : "liked";
+
+            //return Json(new { status, likeCount, postId});
         }
     }
 }

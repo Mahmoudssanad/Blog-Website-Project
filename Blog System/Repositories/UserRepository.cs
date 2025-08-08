@@ -3,6 +3,7 @@ using Blog_System.Models.Entities;
 using Blog_System.Servicies;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using System.Security.Principal;
 
@@ -54,6 +55,13 @@ namespace Blog_System.Repositories
             }
             else
                 return found;
+        }
+
+        public async Task<List<UserApplication>> GetBySearch(string query)
+        {
+            var result = await _context.Users.Where(x => x.UserName.Contains(query)).ToListAsync();
+
+            return result;
         }
 
         public void Save()
