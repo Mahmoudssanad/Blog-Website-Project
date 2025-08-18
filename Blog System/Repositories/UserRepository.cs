@@ -57,9 +57,10 @@ namespace Blog_System.Repositories
                 return found;
         }
 
-        public async Task<List<UserApplication>> GetBySearch(string query)
+        public async Task<List<UserApplication>> GetFollowandUnfollowUsers()
         {
-            var result = await _context.Users.Where(x => x.UserName.Contains(query)).ToListAsync();
+            var userId = _httpContext.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var result = await _context.Users.Where(x => x.Id != userId).ToListAsync();
 
             return result;
         }

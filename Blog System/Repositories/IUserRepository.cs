@@ -7,7 +7,7 @@ namespace Blog_System.Repositories
         // CRUD Operations
 
         public Task<List<UserApplication>> GetAll();
-        public Task<List<UserApplication>> GetBySearch(string query);
+        public Task<List<UserApplication>> GetFollowandUnfollowUsers();
         public UserApplication GetById(string Id);
         public void Add(UserApplication userApplication);
         public void update(UserApplication userApplication, string Id);

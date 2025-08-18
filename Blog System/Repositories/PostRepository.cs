@@ -14,24 +14,50 @@ namespace Blog_System.Repositories
         private readonly IHttpContextAccessor _httpContext;
         private readonly IWebHostEnvironment _webHost;
         private readonly IFollowService _followService;
+        private readonly INotificationService _notificationService;
 
         // هتظهرله ازي في الصفحه بتاعته not visible البوستات اللي المستخدم عاملها 
         public PostRepository(AppDbContext context, IHttpContextAccessor httpContext,
-            IWebHostEnvironment webHost, IFollowService followService)
+            IWebHostEnvironment webHost, IFollowService followService, INotificationService notificationService)
         {
             _context = context;
             _httpContext = httpContext;
             _webHost = webHost;
             _followService = followService;
+            _notificationService = notificationService;
         }
 
 
         public async Task Add(Post post)
         {
-            if(post != null)
+            if (post != null)
             {
                 _context.Posts.Add(post);
                 await _context.SaveChangesAsync();
+
+                // 2) صاحب البوست
+                var userId = _httpContext.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                var userName = _httpContext.HttpContext.User.Identity?.Name ?? "Someone";
+
+                // 3) هات كل المتابعين لصاحب البوست
+                var followers = await _followService.GetFollwersAsync(userId);
+
+                // 4) اعمل Notification لكل متابع
+                foreach (var follower in followers)
+                {
+                    var notification = new Notification
+                    {
+                        UserId = follower.Id,  // المتابع نفسه
+                        Title = "New Post",
+                        Content = $"{userName} added a new post.",
+                        SenderName = userName,
+                        Type = "Post",
+                        RedirectUrl = $"/Post/Details/{post.Id}",
+                        IsRead = false
+                    };
+
+                    await _notificationService.CreateNotificationAsync(notification);
+                }
             }
         }
 

@@ -1,3 +1,4 @@
+using Blog_System.Hubs;
 using Blog_System.Models.Data;
 using Blog_System.Models.Entities;
 using Blog_System.Repositories;
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSignalR();
 
 // Add services to the DbContext.
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -51,6 +53,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+app.MapHub<NotificationHub>("/notificationHub");
 
 app.UseAuthorization();
 

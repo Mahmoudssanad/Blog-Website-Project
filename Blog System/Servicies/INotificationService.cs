@@ -9,7 +9,7 @@ namespace Blog_System.Servicies
         Task<List<Notification>> GetUserNotificationsAsync(string userId);
 
         // جعل الاشعار ك مقروء
-        Task MarkAsReadAsync(int notificationId);
+        Task<Notification> MarkAsReadAsync(int notificationId);
 
         // جعل كل الاشعارات كمقروءه
         Task MarkAllAsReadAsync(string userId);

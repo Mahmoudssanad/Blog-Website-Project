@@ -20,7 +20,8 @@ namespace Blog_System.Controllers
         private readonly IFollowService _followService;
         private readonly ILikeService _likeService;
 
-        public PostController(IPostRepository postRepository, IWebHostEnvironment webHost, IFollowService followService, ILikeService likeService)
+        public PostController(IPostRepository postRepository, IWebHostEnvironment webHost,
+            IFollowService followService, ILikeService likeService)
         {
             _postRepository = postRepository;
             _webHost = webHost;
@@ -73,6 +74,7 @@ namespace Blog_System.Controllers
                     Visible = newPost.Visible,
                     UserId = userId
                 };
+
                 if (post.Content == null & post.ImageURL == null)
                 {
                     ModelState.AddModelError("", "empty post!!");

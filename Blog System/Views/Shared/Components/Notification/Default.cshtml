@@ -1,5 +1,5 @@
-﻿@using Blog_System.Models.Entities
-@model List<Notification>
+﻿@model List<Blog_System.Models.Entities.Notification>
+
 @{
     var unreadCount = Model.Count(n => !n.IsRead);
 }
@@ -9,42 +9,26 @@
         <i class="fas fa-bell fs-5"></i>
         @if (unreadCount > 0)
         {
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            <span id="notification-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 @unreadCount
             </span>
         }
-    </a>
-    <ul class="dropdown-menu dropdown-menu-end shadow">
-        <li><h6 class="dropdown-header">Notifications</h6></li>
-        @if (!Model.Any())
-        {
-            <li><span class="dropdown-item text-muted">There Is No Notifications</span></li>
-        }
         else
         {
-            @foreach (var notification in Model.Take(5))
-            {
-                <li>
-                    @* <a class="dropdown-item @(notification.IsRead ? "" : "fw-bold")" *@
-                       @* href="#"> *@
-                        @*@notification.RedirectUrl*@
-                        @* @notification.Title - @notification.Content *@
-                    @* </a> *@
-
-                    <a class="dropdown-item @(notification.IsRead ? "" : "fw-bold")"
-                   asp-controller="Notification"
-                   asp-action="Read"
-                   asp-route-id="@notification.Id">
-                    @notification.Title - <small class="text-muted">@notification.CreatedAt.ToShortTimeString()</small>
+            <span id="notification-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                0
+            </span>
+        }
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" id="notification-list">
+        @foreach (var notification in Model)
+        {
+            <li>
+                <a class="dropdown-item" href="/Notification/Read/@notification.Id">
+                    @notification.Content
                 </a>
-
-                </li>
-            }
+            </li>
         }
     </ul>
+
 </div>
-
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
-

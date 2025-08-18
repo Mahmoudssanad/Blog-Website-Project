@@ -13,14 +13,17 @@ namespace Blog_System.Controllers
         }
         public async Task<IActionResult> SearchUsers(string query)
         {
+            var users = await _userRepo.GetFollowandUnfollowUsers();
+
             if (string.IsNullOrEmpty(query))
             {
-                return NotFound();
+                return Content(""); // يرجع فاضي لو البحث فاضي
             }
 
-            var result = _userRepo.GetBySearch(query);
+            users = users.Where(x => x.UserName.Contains(query, StringComparison.OrdinalIgnoreCase)).ToList();
 
-            return View(result);
+            return PartialView("_UsersListPartial", users);
         }
+
     }
 }

@@ -30,6 +30,10 @@
 
     <script type="importmap"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -46,16 +50,16 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm border-bottom sticky-top py-2">
             <div class="container-fluid">
                 <!-- Add + Search in same row -->
-                @* <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom py-2"> *@
-                @*     @if (User.Identity.IsAuthenticated) *@
-                @*     { *@
-                @*         <a asp-controller="Post" asp-action="Add" class="btn btn-primary btn-sm me-2"> *@
-                @*             <i class="bi bi-plus-circle"></i> *@
-                @*         </a> *@
-                @*     } *@
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom py-2">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Post" asp-action="Add" class="btn btn-primary btn-sm me-2">
+                            <i class="bi bi-plus-circle"></i>
+                        </a>
+                    }
 
              
-                @* </nav> *@
+                </nav>
                 
                 <!-- Mobile Toggle -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -67,28 +71,30 @@
                 <!-- Main Content -->
                 <div class="collapse navbar-collapse" id="navbarContent">
 
-                                                            <!-- Centered Links -->
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link fw-semibold" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link fw-semibold" asp-controller="" asp-action="">Shorts</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link fw-semibold" asp-controller="User" asp-action="Index">Users</a>
-                            </li>
-                        }
-                    </ul>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <!--Profile image-->
+                        <a asp-controller="Profile" asp-action="Profile" asp-route-id="@currentUser.Id" class="d-flex align-items-center text-decoration-none">
+                            <img src="~/Uploads/@(currentUser.Image ?? "image.png")"
+                                 class="rounded-circle border" width="36" height="36" alt="Profile"
+                                 style="object-fit: cover;" />
+                        </a>
 
-                    <!-- Right Section: Icons + Auth -->
+                        <!-- Logout -->
+                        @* <form asp-action="Logout" asp-controller="Account" method="post" class="d-inline"> *@
+                        @*     <button type="submit" class="btn btn-outline-danger btn-sm px-3">Logout</button> *@
+                        @* </form> *@
+                    }
+                    else
+                    {
+                        <form asp-controller="Account" asp-action="Login" method="get">
+                            <button class="btn btn-outline-primary btn-sm">Login</button>
+                        </form>
+                    }
+
                     <div class="d-flex align-items-center gap-3">
 
-                        @* Notifications *@
-                        @await Component.InvokeAsync("Notification")
-
+                        
 
                         @* Messages *@
                         <div class="dropdown">
@@ -105,39 +111,66 @@
                             </ul>
                         </div>
 
+                        @* Notifications *@
+                        @* <a asp-controller="Notification" asp-action="Index" class="nav-link position-relative"> *@
+                        @*     <i class="fas fa-bell fs-5"></i> *@
+                        @* </a> *@
+                        @* @await Component.InvokeAsync("Notification") *@
 
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                                                    <!--Profile image-->
-                            <a asp-controller="Profile" asp-action="Profile" asp-route-id="@currentUser.Id" class="d-flex align-items-center text-decoration-none">
-                                <img src="~/Uploads/@(currentUser.Image ?? "image.png")"
-                                     class="rounded-circle border" width="36" height="36" alt="Profile"
-                                     style="object-fit: cover;" />
-                            </a>
 
-                                                        <!-- Logout -->
-                            <form asp-action="Logout" asp-controller="Account" method="post" class="d-inline">
-                                <button type="submit" class="btn btn-outline-danger btn-sm px-3">Logout</button>
-                            </form>
-                        }
-                        else
-                        {
-                            <form asp-controller="Account" asp-action="Login" method="get">
-                                <button class="btn btn-outline-primary btn-sm">Login</button>
-                            </form>
-                        }
                     </div>
                 </div>
 
-                <!-- Search Input -->
-                <input id="searchInput"
-                       class="form-control form-control-sm"
-                       type="search"
-                       placeholder="Search..."
-                       aria-label="Search"
-                       style="width: 180px;">
+                                                            <!-- Centered Links -->
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <!-- Shorts Icon -->
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" asp-controller="" asp-action="">
+                                <i class="bi bi-play-btn-fill me-1"></i> Shorts
+                            </a>
+                        </li>
 
-                <div id="searchResults"></div>
+                        <!-- Users Icon -->
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" asp-controller="User" asp-action="Index">
+                                <i class="bi bi-people-fill me-1"></i> Users
+                            </a>
+                        </li>
+
+                        <!-- Home Icon -->
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-house-door-fill me-1"></i> Home
+                            </a>
+                        </li>
+                    }
+
+                    </ul>
+
+                @await Component.InvokeAsync("Notification")
+
+
+                <!-- Search Input -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <form class="d-flex" asp-action="SearchUsers" asp-controller="Search">
+                            <input name="query" class="form-control me-1" type="search" aria-label="Search" />
+                            <button class="btn btn-dark" type="submit">search by name</button>
+                        </form>
+                    </div>
+                </div>
+                
+                @* <input id="searchInput" *@
+                @*        class="form-control form-control-sm" *@
+                @*        type="search" *@
+                @*        placeholder="Search..." *@
+                @*        aria-label="Search" *@
+                @*        style="width: 180px;"> *@
+
+                @* <div id="searchResults"></div> *@
+
 
                 <!-- Logo -->
                 <a class="navbar-brand fw-bold text-primary fs-4" asp-controller="Home" asp-action="Index">
@@ -160,6 +193,34 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script src="~/microsoft-signalr/signalr.min.js"></script>
+    <script>
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/notificationHub")
+            .build();
+
+        connection.on("ReceiveNotification", function (content, redirectUrl) {
+            // 1) زود العدد
+            let badge = document.querySelector("#notification-badge");
+            if (badge) {
+                let count = parseInt(badge.innerText) || 0;
+                badge.innerText = count + 1;
+            }
+
+            // 2) أضف الإشعار للقائمة
+            let list = document.querySelector("#notification-list");
+            if (list) {
+                let li = document.createElement("li");
+                li.innerHTML = `<a class="dropdown-item" href="${redirectUrl}">${content}</a>`;
+                list.prepend(li); // يضيفه فوق
+            }
+        });
+
+        connection.start();
+    </script>
+
+
     <script>
         $(document).ready(function () {
             $('#searchInput').on('keypress', function (e) {

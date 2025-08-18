@@ -2,6 +2,7 @@
 using Blog_System.Servicies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace Blog_System.Controllers
 {
@@ -18,16 +19,25 @@ namespace Blog_System.Controllers
 
         public async Task<IActionResult> Read(int id)
         {
-            await _notificationService.MarkAsReadAsync(id);
+            var notification = await _notificationService.MarkAsReadAsync(id);
 
-            // ممكن تجيب RedirectUrl من الـ notification وتوديه هناك
-            var notification = await _context.Notifications.FindAsync(id);
             if (!string.IsNullOrEmpty(notification?.RedirectUrl))
             {
                 return Redirect(notification.RedirectUrl);
             }
 
             return RedirectToAction("Index", "Home");
+        }
+
+
+        public async Task<IActionResult> Index()
+        {
+            return View();
+        }
+
+        public IActionResult Refresh()
+        {
+            return ViewComponent("Notification");
         }
     }
 }

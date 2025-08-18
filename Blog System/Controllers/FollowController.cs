@@ -1,9 +1,11 @@
-﻿using Blog_System.Models.Data;
+﻿using Blog_System.Hubs;
+using Blog_System.Models.Data;
 using Blog_System.Models.Entities;
 using Blog_System.Servicies;
 using Blog_System.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
 
 namespace Blog_System.Controllers
@@ -12,20 +14,45 @@ namespace Blog_System.Controllers
     {
         private readonly UserManager<UserApplication> _userManager;
         private readonly IFollowService _followService;
+        private readonly IHubContext<NotificationHub> _hubContext;
+        private readonly INotificationService _notificationService;
 
-        public FollowController(UserManager<UserApplication> userManager, IFollowService followService)
+        public FollowController(UserManager<UserApplication> userManager, IFollowService followService,
+            IHubContext<NotificationHub> hubContext, INotificationService notificationService)
         {
             _userManager = userManager;
             _followService = followService;
+            _hubContext = hubContext;
+            _notificationService = notificationService;
         }
         // Follower اللي مسجل دخول هو ال 
 
         public async Task<IActionResult> AddFollow(string targetUserId) // targetUserId => FollwingId
         {
+            // Save in database
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // FollowerId
-
             await _followService.AddAsync(userId, targetUserId);
-            return RedirectToAction("Profile", "Profile", new {id = targetUserId});
+
+            //string redirectUrl = Url.Action("Profile", "Profile", new { id = targetUserId }) ?? "/";
+
+
+            // Add notification in database
+            var notification = new Notification
+            {
+                UserId = targetUserId, // الشخص اللي هيوصله الإشعار
+                Title = "New Follower",
+                Content = $"{User.Identity!.Name} started following you.",
+                SenderName = User.Identity!.Name,
+                Type = "Follow",
+                RedirectUrl = $"/Profile/Profile/{userId}",
+                IsRead = false
+            };
+
+            // CreateNotificationAsync => signalr جوها بعمل 
+            await _notificationService.CreateNotificationAsync(notification);
+
+            //return RedirectToAction("Profile", "Profile", new {id = targetUserId});
+            return Ok();
         }
 
         public async Task<IActionResult> UnFollow(string followingId)
@@ -40,7 +67,6 @@ namespace Blog_System.Controllers
         }
 
         // Followings, Followers في صفحه ال Follow and unfollow عملت بفضل الله طريقتين لعرض زرار  
-
         // View Model الطريقه الاولي هنا وهي ان استخدمت ال 
         public async Task<IActionResult> GetFollowers(string id)
         {
