@@ -11,6 +11,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSignalR();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // „œ… «·”Ì‘‰
+    options.Cookie.HttpOnly = true; // «·”Ì‘‰ €Ì— ﬁ«»·… ··Ê’Ê· „‰ Ã«›«”ﬂ—» 
+    options.Cookie.IsEssential = true; // „Â„ · Ã‰» „‘«ﬂ· GDPR
+});
 
 // Add services to the DbContext.
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -29,6 +35,7 @@ builder.Services.AddScoped<IPostRepository, PostRepository>();
 builder.Services.AddScoped<IFollowService, FollowService>();
 builder.Services.AddScoped<ILikeService, LikeService>();
 builder.Services.AddScoped<ICommentService, CommentService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 builder.Services.AddSession(x => x.IdleTimeout = TimeSpan.FromHours(1));
 
@@ -51,7 +58,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
+app.UseSession();
 app.UseRouting();
 
 app.MapHub<NotificationHub>("/notificationHub");

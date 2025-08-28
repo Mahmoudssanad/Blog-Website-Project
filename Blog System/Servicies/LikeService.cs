@@ -21,6 +21,7 @@ namespace Blog_System.Servicies
 
             return found;
         }
+
         public async Task<bool> IsCommentLikedByUser(string userId, int commentId)
         {
             var found = await _context.Likes.AnyAsync(x => x.UserId == userId && x.CommentId == commentId);

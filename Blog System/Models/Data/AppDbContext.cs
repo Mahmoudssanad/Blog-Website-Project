@@ -19,6 +19,7 @@ namespace Blog_System.Models.Data
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Settings> Settings { get; set; }
         public DbSet<Follow> Follows { get; set; }
+        public DbSet<EmailOtp> EmailOtps { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)

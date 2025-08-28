@@ -2,13 +2,16 @@
 
 using Blog_System.Models.Entities;
 using Blog_System.Repositories;
+using Blog_System.Servicies;
 using Blog_System.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using Newtonsoft.Json;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Blog_System.Controllers
 {
@@ -26,14 +29,16 @@ namespace Blog_System.Controllers
     {
         private readonly UserManager<UserApplication> _userManager;
         private readonly IAccountRepository _accountRepo; // Because ChangePassword function only
+        private readonly IEmailService _emailService;
         private readonly SignInManager<UserApplication> _signInManager; // when you need save data in cookie
 
         public AccountController(UserManager<UserApplication> userManager,
-            SignInManager<UserApplication> signInManager, IAccountRepository accountRepo)
+            SignInManager<UserApplication> signInManager, IAccountRepository accountRepo, IEmailService emailService)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _accountRepo = accountRepo;
+            _emailService = emailService;
         }
 
         [HttpGet]
@@ -47,44 +52,120 @@ namespace Blog_System.Controllers
         public async Task<IActionResult> SaveRegister(RegisterViewModel userRegisteration)
         {
             // 1- UserApplication class نحطها في ال ViewModel هناخد الداتا من ال 
-            UserApplication userApplication = new UserApplication();
+            //UserApplication userApplication = new UserApplication();
 
             if (ModelState.IsValid)
             {
-                userApplication.PasswordHash = userRegisteration.Password;
-                userApplication.Email = userRegisteration.Email;
-                userApplication.FirstName = userRegisteration.FirstName;
-                userApplication.LastName = userRegisteration.LastName;
-                userApplication.BirthDate = userRegisteration.BirthDate;
-                userApplication.UserName = userRegisteration.UserName;
-
-                var found = await _userManager.FindByEmailAsync(userApplication.Email);
+                var found = await _userManager.FindByEmailAsync(userRegisteration.Email);
 
                 if(found != null)
                 {
                     // بيعمل كدا هل اقدر استغا عنه؟؟Custome validation طب انا عامل اصلا Email لل duplicate هنا عشان ميعملش 
                     ModelState.AddModelError("", "Email Already Exist");
+                    return View("Register", userRegisteration);
                 }
 
-                else
+                // Save register data in session
+                HttpContext.Session.SetString("TempRegister", JsonConvert.SerializeObject(userRegisteration));
+
+                // Generate otp
+                var otp = new Random().Next(100000, 999999).ToString();
+
+                // Send otp to user email
+                await _emailService.SendEmailAsync(userRegisteration.Email, "Confirm Your Email on Vivena website",
+                    $"Welcome {userRegisteration.UserName}! \n Your OTP is: {otp}");
+
+                var emailotp = new EmailOtp
                 {
+                    Email = userRegisteration.Email,
+                    ExpiryTime = DateTime.UtcNow.AddMinutes(5),
+                    OtpCode = otp,
+                    IsUsed = false,
+                };
+
+                await _emailService.Add(emailotp);
+
+                return RedirectToAction("VerifyOtp", new { Email = userRegisteration.Email });
+            }
+                return View("register", userRegisteration);
+        }
+
+        [HttpGet]
+        public IActionResult VerifyOtp(string email)
+        {
+            return View(new OtpViewModel { Email = email});        
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> VerifyOtp(OtpViewModel model)
+        {
+            var found = await _emailService.FindByEmailAsync(model.Email);
+
+            if (found != null && !found.IsUsed)
+            {
+                if(model.Otp == found.OtpCode && found.ExpiryTime > DateTime.UtcNow)
+                {
+                    var registerModel = JsonConvert.DeserializeObject<RegisterViewModel>(
+                        HttpContext.Session.GetString("TempRegister"));
+
+                    var user = new UserApplication
+                    {
+                        Email = registerModel.Email,
+                        UserName = registerModel.UserName,
+                        FirstName = registerModel.FirstName,
+                        LastName = registerModel.LastName,
+                        BirthDate = registerModel.BirthDate,
+                        PasswordHash = registerModel.Password
+                    };
+
                     // 2- Save new register in database by CreateAsync function
-                    var result = await _userManager.CreateAsync(userApplication, userRegisteration.Password);
+                    var result = await _userManager.CreateAsync(user, registerModel.Password);
 
                     if (result.Succeeded)
                     {
+                        found.IsUsed = true;
+                        await _emailService.UpdateAsync(found);
+
                         // Create Cookie and save this user data into this cookie by SignInAsync
-                        await _signInManager.SignInAsync(userApplication, true);
+                        await _signInManager.SignInAsync(user, true);
 
                         return RedirectToAction("Index", "Home");
                     }
-                    else
-                    {
-                        throw new Exception("result not succeeded");
-                    }
                 }
             }
-                return View("register", userRegisteration);
+            ModelState.AddModelError("", "Not correct or expired OTP");
+            return View(model);
+        }
+
+        public async Task<IActionResult> ResendOtp(string email)
+        {
+            var found = await _emailService.FindByEmailAsync(email);
+
+            if(found != null && !found.IsUsed)
+            {
+                var otp = new Random().Next(100000, 999999).ToString();
+                found.ExpiryTime = DateTime.UtcNow.AddMinutes(2);
+                found.OtpCode = otp;
+
+                await _emailService.UpdateAsync(found);
+
+                //// save register data in session
+                var registerModel = JsonConvert.DeserializeObject<RegisterViewModel>(
+                        HttpContext.Session.GetString("TempRegister"));
+
+                await _emailService.SendEmailAsync(registerModel.Email, "Confirm Your Email on Vivena website",
+                    $"Welcome {registerModel.UserName}! \n Your OTP is: {otp}");
+
+                TempData["Message"] = "A new OTP has been sent to your email.";
+
+                return RedirectToAction("VerifyOtp", new { email = registerModel.Email });
+            }
+            else
+            {
+                TempData["Message"] = "Error occurred. Please try again.";
+                return RedirectToAction("VerifyOtp", new {email = email});
+            }
         }
 
         [HttpGet]
@@ -109,7 +190,7 @@ namespace Blog_System.Controllers
 
                         if (found)
                         {
-                            // but User Data in cookie
+                            // put User Data in cookie
                             await _signInManager.SignInAsync(result, true);
                             return RedirectToAction("Index", "Home");
                         }
@@ -162,6 +243,31 @@ namespace Blog_System.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AutoValidateAntiforgeryToken]
+        public async Task<IActionResult> ForgetPassword(ForgetPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var found = await _userManager.FindByEmailAsync(model.Email);
+
+                if(found != null)
+                {
+                    return RedirectToAction("VerifyOtp", new {email = found.Email});
+                }
+                ModelState.AddModelError("", "Email not found.");
+            }
+            return View(model);
+        }
+
+        
     }
 }
 

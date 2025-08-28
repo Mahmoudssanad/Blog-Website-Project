@@ -34,30 +34,6 @@ namespace Blog_System.Repositories
             {
                 _context.Posts.Add(post);
                 await _context.SaveChangesAsync();
-
-                // 2) صاحب البوست
-                var userId = _httpContext.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-                var userName = _httpContext.HttpContext.User.Identity?.Name ?? "Someone";
-
-                // 3) هات كل المتابعين لصاحب البوست
-                var followers = await _followService.GetFollwersAsync(userId);
-
-                // 4) اعمل Notification لكل متابع
-                foreach (var follower in followers)
-                {
-                    var notification = new Notification
-                    {
-                        UserId = follower.Id,  // المتابع نفسه
-                        Title = "New Post",
-                        Content = $"{userName} added a new post.",
-                        SenderName = userName,
-                        Type = "Post",
-                        RedirectUrl = $"/Post/Details/{post.Id}",
-                        IsRead = false
-                    };
-
-                    await _notificationService.CreateNotificationAsync(notification);
-                }
             }
         }
 
@@ -94,7 +70,11 @@ namespace Blog_System.Repositories
 
         public async Task<Post> GetById(int id)
         {
-            var post = await _context.Posts.FirstOrDefaultAsync(x => x.Id == id);
+            var post = await _context.Posts
+                .Include(x => x.UserApplication)
+                .Include(x => x.Likes)
+                .Include(x => x.Comments)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             return post;
         }

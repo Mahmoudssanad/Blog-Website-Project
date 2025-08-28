@@ -1,0 +1,521 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\Blog System.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Blog System.k0iqbxj1xr.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\1,3rd Y,cardiac investigations.pptx",
+      "PackagePath": "staticwebassets\\Images\\1,3rd Y,cardiac investigations.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\1-3rd year, GIT, upper GI Symptoms, Int Med.pptx",
+      "PackagePath": "staticwebassets\\Images\\1-3rd year, GIT, upper GI Symptoms, Int Med.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\10-3rd year,GIT, GIT&Hep CBL Int Med.pptx",
+      "PackagePath": "staticwebassets\\Images\\10-3rd year,GIT, GIT&Hep CBL Int Med.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\2-3rd year, GIT, lower GIT symptoms, Int Med.pptx",
+      "PackagePath": "staticwebassets\\Images\\2-3rd year, GIT, lower GIT symptoms, Int Med.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\2-3rd year-cardio, RHF, I.E(3).pptx",
+      "PackagePath": "staticwebassets\\Images\\2-3rd year-cardio, RHF, I.E(3).pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\3,3rd Y, cardio, Pericardial Disease.pptx",
+      "PackagePath": "staticwebassets\\Images\\3,3rd Y, cardio, Pericardial Disease.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\3,3rdY, cardio, Cardiomyopathy.pptx",
+      "PackagePath": "staticwebassets\\Images\\3,3rdY, cardio, Cardiomyopathy.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\3-3rd year, GIT, Jaundice, int med.pptx",
+      "PackagePath": "staticwebassets\\Images\\3-3rd year, GIT, Jaundice, int med.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\4, 3rd Y, cardio, hypertension.pptx",
+      "PackagePath": "staticwebassets\\Images\\4, 3rd Y, cardio, hypertension.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\4-3rd year, GIT, liver function tests,  Int Med.pptx",
+      "PackagePath": "staticwebassets\\Images\\4-3rd year, GIT, liver function tests,  Int Med.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\5,3rd Y, cardio, Chronic coronary syndrome.pptx",
+      "PackagePath": "staticwebassets\\Images\\5,3rd Y, cardio, Chronic coronary syndrome.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\5- 3rd year, GIT, Acute&Chronic viral hepatitis, Int Med.pptx",
+      "PackagePath": "staticwebassets\\Images\\5- 3rd year, GIT, Acute&Chronic viral hepatitis, Int Med.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\6, 3rd Y, cardio, Acute coronary Syndrome.pptx",
+      "PackagePath": "staticwebassets\\Images\\6, 3rd Y, cardio, Acute coronary Syndrome.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\6-3rd GIT liver cirrhosis & sequel 1 Int Med no audio.pptx",
+      "PackagePath": "staticwebassets\\Images\\6-3rd GIT liver cirrhosis & sequel 1 Int Med no audio.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\7, 3rd y , cardio, Heart failure for undergraduate.pptx",
+      "PackagePath": "staticwebassets\\Images\\7, 3rd y , cardio, Heart failure for undergraduate.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\7, 3rd year, cardio, CCS (1).pptx",
+      "PackagePath": "staticwebassets\\Images\\7, 3rd year, cardio, CCS (1).pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\7, 3rd year, cardio, CCS.pptx",
+      "PackagePath": "staticwebassets\\Images\\7, 3rd year, cardio, CCS.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\7-3rdyear, GIT, GERD+Esophageal motility disorders+PUD,Int Med.pptx",
+      "PackagePath": "staticwebassets\\Images\\7-3rdyear, GIT, GERD+Esophageal motility disorders+PUD,Int Med.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\8, 3rd Y, cardio, Arrhythmias - Syncope - AF and stroke prevention  (1).pptx",
+      "PackagePath": "staticwebassets\\Images\\8, 3rd Y, cardio, Arrhythmias - Syncope - AF and stroke prevention  (1).pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\8, 3rd year, cardio, ACS.pptx",
+      "PackagePath": "staticwebassets\\Images\\8, 3rd year, cardio, ACS.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\9, 3rd Y, cardio,DVT,PE_and_PH.pptx",
+      "PackagePath": "staticwebassets\\Images\\9, 3rd Y, cardio,DVT,PE_and_PH.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\9, 3rd year, cardio, arrhythmia.pptx",
+      "PackagePath": "staticwebassets\\Images\\9, 3rd year, cardio, arrhythmia.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\9-3rd year, GIT, liver cirrhosis sequel 2, Int Med.pptx",
+      "PackagePath": "staticwebassets\\Images\\9-3rd year, GIT, liver cirrhosis sequel 2, Int Med.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\Day 3.2- Cough & Expectoration (Pulmonary tuberculosis).pptx",
+      "PackagePath": "staticwebassets\\Images\\Day 3.2- Cough & Expectoration (Pulmonary tuberculosis).pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\Day 4.2 Chest pain (Mesothelioma & Pneumothorax).pptx",
+      "PackagePath": "staticwebassets\\Images\\Day 4.2 Chest pain (Mesothelioma & Pneumothorax).pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\IMG_20220726_011430_675.jpg",
+      "PackagePath": "staticwebassets\\Images\\IMG_20220726_011430_675.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\TS,3rd_year-_cardio_,_Cardiac_cycle,_and__murmurs_modified.pptx",
+      "PackagePath": "staticwebassets\\Images\\TS,3rd_year-_cardio_,_Cardiac_cycle,_and__murmurs_modified.pptx"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Images\\logo.png",
+      "PackagePath": "staticwebassets\\Images\\logo.png"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\2.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\2.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011303_853.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011303_853.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011309_686.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011309_686.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011318_279.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011318_279.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011329_318.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011329_318.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011333_398.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011333_398.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011405_294.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011405_294.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011414_962.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011414_962.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011443_207.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011443_207.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011519_447.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011519_447.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011537_823.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011537_823.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011548_271.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011548_271.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011554_116.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011554_116.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011600_892.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011600_892.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011632_362.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011632_362.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011652_149.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011652_149.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011706_342.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011706_342.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011804_788.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011804_788.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_011819_070.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_011819_070.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_012344_327.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_012344_327.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220726_012609_295.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220726_012609_295.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20220730_002810_879.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20220730_002810_879.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20221118_163113.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20221118_163113.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20230628_083331_790.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20230628_083331_790.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20230628_083332_024.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20230628_083332_024.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20230628_083332_332.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20230628_083332_332.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\IMG_20230628_084039_845.jpg",
+      "PackagePath": "staticwebassets\\Uploads\\IMG_20230628_084039_845.jpg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\image.png",
+      "PackagePath": "staticwebassets\\Uploads\\image.png"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\received_408064451300876.jpeg",
+      "PackagePath": "staticwebassets\\Uploads\\received_408064451300876.jpeg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\Uploads\\received_772667437515439.jpeg",
+      "PackagePath": "staticwebassets\\Uploads\\received_772667437515439.jpeg"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\microsoft-signalr\\signalr.js",
+      "PackagePath": "staticwebassets\\microsoft-signalr\\signalr.js"
+    },
+    {
+      "Id": "D:\\Back-end\\MVC Projects\\Blog System\\Blog Project\\Blog System\\wwwroot\\microsoft-signalr\\signalr.min.js",
+      "PackagePath": "staticwebassets\\microsoft-signalr\\signalr.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Blog System.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Blog System.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.Blog System.props",
+      "PackagePath": "build\\Blog System.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.Blog System.props",
+      "PackagePath": "buildMultiTargeting\\Blog System.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.Blog System.props",
+      "PackagePath": "buildTransitive\\Blog System.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

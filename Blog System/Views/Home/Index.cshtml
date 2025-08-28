@@ -17,7 +17,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
 
-@* Add this modal outside the foreach *@
+@* like modal to show user who liked the post *@
 <div class="modal fade" id="likesModal" tabindex="-1" aria-labelledby="likesModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -34,6 +34,7 @@
     </div>
 </div>
 
+@* comment modal to show user who commented the post *@
 <div class="modal fade" id="commentsModal" tabindex="-1" aria-labelledby="commentsModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -64,7 +65,7 @@
 
                     <!-- Left Side: User Image + Name + Date -->
                     <div class="d-flex align-items-center">
-                        <img src="~/Uploads/@(post.UserApplication.Image ?? "default.png")"
+                        <img src="~/Uploads/@(post.UserApplication.Image ?? "image.png")"
                         alt="User image"
                         class="rounded-circle border"
                         width="50"
@@ -113,7 +114,6 @@
                 }
 
 
-
                 <!-- Post Content -->
                 <p class="mb-2">@post.Content</p>
 
@@ -148,16 +148,20 @@
                         @Html.AntiForgeryToken()
                     </div>
 
-                    @* <button class="btn btn-outline-primary btn-sm" id="likeAction"> *@
-                    @*     <i class="bi bi-hand-thumbs-up"></i> Like  *@
+
+                    @* <button class="btn btn-outline-primary btn-sm like-toggle" *@
+                    @*         data-post-id="@post.Id" id="like-btn-@post.Id"> *@
+                    @*     <i class="bi bi-hand-thumbs-up"></i> *@
+                    @*     <span class="like-text">Like</span> (<span id="like-count-@post.Id">@post.Likes.Count</span>) *@
                     @* </button> *@
 
-                    @* <input type="hidden" id="__RequestVerificationToken"  /> *@
+                    <form id="anti-forgery-form">
+                        @Html.AntiForgeryToken()
+                    </form>
 
-                    <button class="btn btn-outline-primary btn-sm like-toggle"
-                            data-post-id="@post.Id" id="like-btn-@post.Id">
-                        <i class="bi bi-hand-thumbs-up"></i>
-                        <span class="like-text">Like</span> (<span id="like-count-@post.Id">@post.Likes.Count</span>)
+                    <button class="btn btn-sm btn-outline-primary like-btn"
+                            data-post-id="@post.Id">
+                        👍 Like <span class="like-count">@post.Likes.Count</span>
                     </button>
 
                     <a asp-action="Details" asp-controller="Comment" asp-route-postId="@post.Id" class="btn btn-outline-secondary btn-sm">
@@ -238,6 +242,43 @@
     </script>
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const token = document.querySelector('#anti-forgery-form input[name="__RequestVerificationToken"]').value;
+
+            document.querySelectorAll(".like-btn").forEach(btn => {
+                btn.addEventListener("click", async () => {
+                    const postId = btn.getAttribute("data-post-id");
+
+                    try {
+                        const response = await fetch("/Like/AddLikeToPost", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "RequestVerificationToken": token
+                            },
+                            body: JSON.stringify({ postId: parseInt(postId) })
+                        });
+
+                        if (!response.ok) {
+                            throw new Error("Server error: " + response.statusText);
+                        }
+
+                        const result = await response.json();
+
+                        // تحديث عدد اللايكات
+                        btn.querySelector(".like-count").innerText = result.newLikeCount;
+
+                    } catch (error) {
+                        console.error("Error:", error);
+                        alert("Something went wrong while liking the post.");
+                    }
+                });
+            });
+        });
+    </script>
+
+
+    <script>
         document.querySelectorAll('.like-toggle').forEach(button => {
             button.addEventListener('click', async function () {
                 const postId = this.getAttribute('data-post-id');
@@ -257,17 +298,17 @@
                 const btn = document.getElementById(`like-btn-${postId}`);
                 const countSpan = document.getElementById(`like-count-${postId}`);
 
-                if (result.status === 'liked') {
-                    btn.querySelector('.like-text').textContent = 'Dislike';
-                    btn.classList.remove('btn-outline-primary');
-                    btn.classList.add('btn-primary');
-                } else if (result.status === 'disliked') {
-                    btn.querySelector('.like-text').textContent = 'Like';
-                    btn.classList.remove('btn-primary');
-                    btn.classList.add('btn-outline-primary');
-                }
+                        if (result.liked) {
+            btn.querySelector('.like-text').textContent = 'Dislike';
+            btn.classList.remove('btn-outline-primary');
+            btn.classList.add('btn-primary');
+        } else {
+            btn.querySelector('.like-text').textContent = 'Like';
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-outline-primary');
+        }
 
-                countSpan.textContent = result.likeCount;
+        countSpan.textContent = result.likeCount;
             });
         });
     </script>

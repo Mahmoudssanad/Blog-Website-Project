@@ -65,6 +65,33 @@ namespace Blog_System.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("Blog_System.Models.Entities.EmailOtp", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExpiryTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("OtpCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EmailOtps");
+                });
+
             modelBuilder.Entity("Blog_System.Models.Entities.Follow", b =>
                 {
                     b.Property<string>("FollowingId")

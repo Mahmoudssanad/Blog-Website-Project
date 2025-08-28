@@ -5,6 +5,7 @@ using Blog_System.Servicies;
 using Blog_System.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
@@ -19,14 +20,16 @@ namespace Blog_System.Controllers
         private readonly IWebHostEnvironment _webHost;
         private readonly IFollowService _followService;
         private readonly ILikeService _likeService;
+        private readonly INotificationService _notificationService;
 
         public PostController(IPostRepository postRepository, IWebHostEnvironment webHost,
-            IFollowService followService, ILikeService likeService)
+            IFollowService followService, ILikeService likeService, INotificationService notificationService)
         {
             _postRepository = postRepository;
             _webHost = webHost;
             _followService = followService;
             _likeService = likeService;
+            _notificationService = notificationService;
         }
 
         [HttpGet]
@@ -47,8 +50,10 @@ namespace Blog_System.Controllers
         [AutoValidateAntiforgeryToken]
         public async Task<IActionResult> Add(PostViewModel newPost)
         {
+
             if (ModelState.IsValid)
             {
+                // Add image in post
                 string imageFileName = null;
                 if(newPost.ImageFile != null)
                 {
@@ -63,7 +68,6 @@ namespace Blog_System.Controllers
                 }
 
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
 
                 var post = new Post
                 {
@@ -80,9 +84,28 @@ namespace Blog_System.Controllers
                     ModelState.AddModelError("", "empty post!!");
                     return View("Add", newPost);
                 }
+
                 try
                 {
                     await _postRepository.Add(post);
+
+                    var followers = await _followService.GetFollwersAsync(userId);
+
+                    foreach (var follow in followers)
+                    {
+                        var notification = new Notification
+                        {
+                            UserId = follow.Id,
+                            Title = "New Post",
+                            Content = $"{User.Identity!.Name} started Add new post.",
+                            SenderName = User.Identity!.Name,
+                            Type = "AddPost",
+                            RedirectUrl = $"/Post/GetSpecificPost/{post.Id}",
+                            IsRead = false
+                        };
+
+                        await _notificationService.CreateNotificationAsync(notification);
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 catch(Exception ex)
@@ -93,6 +116,13 @@ namespace Blog_System.Controllers
             return View("Add", newPost);
         }
 
+
+        public async Task<IActionResult> GetSpecificPost(int id)
+        {
+            var post = await _postRepository.GetById(id);
+
+            return View(post);
+        }
 
         public async Task<IActionResult> ShowYourPosts()
         {
@@ -163,48 +193,25 @@ namespace Blog_System.Controllers
         }
 
         [HttpPost]
-        public JsonResult ToggleLike01(int postId)
+        public async Task<IActionResult> ToggleLike(int postId)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var existing = _likeService.IsPostLikedByUser(userId, postId);
+            var existingLike = await _likeService.IsPostLikedByUser(userId, postId);
 
-            if (existing != null)
+            if (existingLike != null)
             {
-                _likeService.DeleteLikeFromPost(userId, postId);
-                return Json(new { status = "disliked" });
+                // عمل Unlike
+                await _likeService.DeleteLikeFromPost(userId, postId);
+                return Json(new { success = true, liked = false });
             }
             else
             {
-                _likeService.AddLikeToPost(userId, postId);
-                 return Json(new { status = "liked" });
+                // عمل Like
+                var like = new Like { PostId = postId, UserId = userId };
+                await _likeService.AddLikeToPost(userId, postId);
+                return Json(new { success = true, liked = true });
             }
-        }
-
-        [HttpPost]
-        public async Task<JsonResult> ToggleLike([FromBody] dynamic data)
-        {
-            return Json(new { data.postId });
-
-            int postId = (int)data.postId;
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-
-            //var existing = await _likeService.IsPostLikedByUser(userId, postId);
-
-            //if (existing != null)
-            //{
-            //    await _likeService.DeleteLikeFromPost(userId, postId);
-            //}
-            //else
-            //{
-            //    await _likeService.AddLikeToPost(userId, postId);
-            //}
-
-            //int likeCount = await _likeService.GetPostLikesCountAsync(postId);
-            //string status = existing != null ? "disliked" : "liked";
-
-            //return Json(new { status, likeCount, postId});
         }
     }
 }

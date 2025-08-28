@@ -1,0 +1,187 @@
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery-validation\dist\additional-methods.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\microsoft-signalr\signalr.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery\dist\jquery.slim.min.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery\dist\jquery.slim.min.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\js\site.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery-validation\LICENSE.md
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery\dist\jquery.slim.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery\dist\jquery.min.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\favicon.ico
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\css\site.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery\dist\jquery.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery\LICENSE.txt
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\microsoft-signalr\signalr.min.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\jquery\dist\jquery.min.map
+D:\Back-end\MVC Projects\Blog System\Blog Project\Blog System\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+wwwroot\css\site.css
+wwwroot\favicon.ico
+wwwroot\Images\1,3rd Y,cardiac investigations.pptx
+wwwroot\Images\10-3rd year,GIT, GIT&Hep CBL Int Med.pptx
+wwwroot\Images\1-3rd year, GIT, upper GI Symptoms, Int Med.pptx
+wwwroot\Images\2-3rd year, GIT, lower GIT symptoms, Int Med.pptx
+wwwroot\Images\2-3rd year-cardio, RHF, I.E(3).pptx
+wwwroot\Images\3,3rd Y, cardio, Pericardial Disease.pptx
+wwwroot\Images\3,3rdY, cardio, Cardiomyopathy.pptx
+wwwroot\Images\3-3rd year, GIT, Jaundice, int med.pptx
+wwwroot\Images\4, 3rd Y, cardio, hypertension.pptx
+wwwroot\Images\4-3rd year, GIT, liver function tests,  Int Med.pptx
+wwwroot\Images\5- 3rd year, GIT, Acute&Chronic viral hepatitis, Int Med.pptx
+wwwroot\Images\5,3rd Y, cardio, Chronic coronary syndrome.pptx
+wwwroot\Images\6, 3rd Y, cardio, Acute coronary Syndrome.pptx
+wwwroot\Images\6-3rd GIT liver cirrhosis & sequel 1 Int Med no audio.pptx
+wwwroot\Images\7, 3rd y , cardio, Heart failure for undergraduate.pptx
+wwwroot\Images\7, 3rd year, cardio, CCS (1).pptx
+wwwroot\Images\7, 3rd year, cardio, CCS.pptx
+wwwroot\Images\7-3rdyear, GIT, GERD+Esophageal motility disorders+PUD,Int Med.pptx
+wwwroot\Images\8, 3rd Y, cardio, Arrhythmias - Syncope - AF and stroke prevention  (1).pptx
+wwwroot\Images\8, 3rd year, cardio, ACS.pptx
+wwwroot\Images\9, 3rd Y, cardio,DVT,PE_and_PH.pptx
+wwwroot\Images\9, 3rd year, cardio, arrhythmia.pptx
+wwwroot\Images\9-3rd year, GIT, liver cirrhosis sequel 2, Int Med.pptx
+wwwroot\Images\Day 3.2- Cough & Expectoration (Pulmonary tuberculosis).pptx
+wwwroot\Images\Day 4.2 Chest pain (Mesothelioma & Pneumothorax).pptx
+wwwroot\Images\IMG_20220726_011430_675.jpg
+wwwroot\Images\logo.png
+wwwroot\Images\TS,3rd_year-_cardio_,_Cardiac_cycle,_and__murmurs_modified.pptx
+wwwroot\js\site.js
+wwwroot\lib\bootstrap\dist\css\bootstrap.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+wwwroot\lib\bootstrap\LICENSE
+wwwroot\lib\jquery\dist\jquery.js
+wwwroot\lib\jquery\dist\jquery.min.js
+wwwroot\lib\jquery\dist\jquery.min.map
+wwwroot\lib\jquery\dist\jquery.slim.js
+wwwroot\lib\jquery\dist\jquery.slim.min.js
+wwwroot\lib\jquery\dist\jquery.slim.min.map
+wwwroot\lib\jquery\LICENSE.txt
+wwwroot\lib\jquery-validation\dist\additional-methods.js
+wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+wwwroot\lib\jquery-validation\dist\jquery.validate.js
+wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+wwwroot\lib\jquery-validation\LICENSE.md
+wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+wwwroot\microsoft-signalr\signalr.js
+wwwroot\microsoft-signalr\signalr.min.js
+wwwroot\Uploads\2.jpg
+wwwroot\Uploads\image.png
+wwwroot\Uploads\IMG_20220726_011303_853.jpg
+wwwroot\Uploads\IMG_20220726_011309_686.jpg
+wwwroot\Uploads\IMG_20220726_011318_279.jpg
+wwwroot\Uploads\IMG_20220726_011329_318.jpg
+wwwroot\Uploads\IMG_20220726_011333_398.jpg
+wwwroot\Uploads\IMG_20220726_011405_294.jpg
+wwwroot\Uploads\IMG_20220726_011414_962.jpg
+wwwroot\Uploads\IMG_20220726_011443_207.jpg
+wwwroot\Uploads\IMG_20220726_011519_447.jpg
+wwwroot\Uploads\IMG_20220726_011537_823.jpg
+wwwroot\Uploads\IMG_20220726_011548_271.jpg
+wwwroot\Uploads\IMG_20220726_011554_116.jpg
+wwwroot\Uploads\IMG_20220726_011600_892.jpg
+wwwroot\Uploads\IMG_20220726_011632_362.jpg
+wwwroot\Uploads\IMG_20220726_011652_149.jpg
+wwwroot\Uploads\IMG_20220726_011706_342.jpg
+wwwroot\Uploads\IMG_20220726_011804_788.jpg
+wwwroot\Uploads\IMG_20220726_011819_070.jpg
+wwwroot\Uploads\IMG_20220726_012344_327.jpg
+wwwroot\Uploads\IMG_20220726_012609_295.jpg
+wwwroot\Uploads\IMG_20220730_002810_879.jpg
+wwwroot\Uploads\IMG_20221118_163113.jpg
+wwwroot\Uploads\IMG_20230628_083331_790.jpg
+wwwroot\Uploads\IMG_20230628_083332_024.jpg
+wwwroot\Uploads\IMG_20230628_083332_332.jpg
+wwwroot\Uploads\IMG_20230628_084039_845.jpg
+wwwroot\Uploads\received_408064451300876.jpeg
+wwwroot\Uploads\received_772667437515439.jpeg
